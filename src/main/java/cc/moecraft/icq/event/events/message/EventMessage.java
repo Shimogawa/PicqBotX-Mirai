@@ -16,13 +16,15 @@ public abstract class EventMessage extends Event {
     /**
      * Message Template
      */
-    protected String message;
+    protected final String message;
 
-    protected MessageChain rawMessage;
+    protected final MessageChain rawMessage;
 
-    protected Long senderId;
+    protected final long senderId;
 
-    protected User sender;
+    protected final User sender;
+
+    protected final int eventTime;
 
     public EventMessage(MessageEvent miraiEvent, PicqBotX bot) {
         super(miraiEvent, bot, miraiEvent.getTime());
@@ -30,6 +32,7 @@ public abstract class EventMessage extends Event {
         this.rawMessage = miraiEvent.getMessage();
         this.sender = miraiEvent.getSender();
         this.senderId = sender.getId();
+        this.eventTime = miraiEvent.getTime();
     }
 
     public String getMessage() {
@@ -40,12 +43,16 @@ public abstract class EventMessage extends Event {
         return rawMessage;
     }
 
-    public Long getSenderId() {
+    public long getSenderId() {
         return senderId;
     }
 
     public User getSender() {
         return sender;
+    }
+
+    public int getEventTime() {
+        return eventTime;
     }
 
     public MessageReceipt<Contact> respond(String response) {
