@@ -3,6 +3,17 @@ package cc.moecraft.icq;
 import java.util.function.Consumer;
 
 public class PicqConfig {
+    private static final PicqConfig instance = new PicqConfig();
+
+    public static PicqConfig getInstance() {
+        return instance;
+    }
+
+    public static PicqConfig modifyConfig(Consumer<PicqConfig> block) {
+        block.accept(instance);
+        return instance;
+    }
+
     private boolean isDebug = false;
 
     private String logPath = "logs";
@@ -20,15 +31,7 @@ public class PicqConfig {
      */
     private long scheduledClearWeakRefTimeInterval = 60 * 60L;
 
-    public PicqConfig() {
-    }
-
-    public PicqConfig(Consumer<PicqConfig> block) {
-        block.accept(this);
-    }
-
-    public static PicqConfig getDefault() {
-        return new PicqConfig();
+    private PicqConfig() {
     }
 
     public boolean isDebug() {
