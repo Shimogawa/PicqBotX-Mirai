@@ -6,12 +6,17 @@ import net.mamoe.mirai.contact.User;
 import net.mamoe.mirai.event.events.MessageRecallEvent;
 
 public abstract class EventNoticeRecall extends EventNotice {
-
+    /**
+     * 撤回消息的人
+     */
     protected final User operator;
 
+    /**
+     * 消息发送者
+     */
     protected final User author;
 
-    // protected final
+    protected final int eventTime;
 
     public EventNoticeRecall(MessageRecallEvent miraiEvent, PicqBotX bot, User operator) {
         super(miraiEvent, bot, miraiEvent.getMessageTime(), operator);
@@ -23,6 +28,7 @@ public abstract class EventNoticeRecall extends EventNotice {
                 ? ((Bot) miraiEvent.getAuthor()).getAsFriend()
                 : (User) miraiEvent.getAuthor();
         }
+        this.eventTime = miraiEvent.getMessageTime();
     }
 
     public User getOperator() {
@@ -31,5 +37,9 @@ public abstract class EventNoticeRecall extends EventNotice {
 
     public User getAuthor() {
         return author;
+    }
+
+    public int getEventTime() {
+        return eventTime;
     }
 }

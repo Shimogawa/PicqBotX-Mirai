@@ -2,7 +2,9 @@ package cc.moecraft.icq.core;
 
 import cc.moecraft.icq.PicqBotX;
 import cc.moecraft.icq.event.EventManager;
-import cc.moecraft.icq.event.events.message.*;
+import cc.moecraft.icq.event.events.message.EventGroupMessage;
+import cc.moecraft.icq.event.events.message.EventPrivateMessage;
+import cc.moecraft.icq.event.events.message.EventTempMessage;
 import cc.moecraft.icq.event.events.notice.*;
 import kotlin.coroutines.CoroutineContext;
 import net.mamoe.mirai.event.SimpleListenerHost;
@@ -50,12 +52,57 @@ public class PicqMiraiEventHandlers extends SimpleListenerHost {
     }
 
     @net.mamoe.mirai.event.EventHandler
-    public void onReceiveFriendRecall(@NotNull MessageRecallEvent.FriendRecall friendRecall) {
-        eventManager.call(new EventNoticeFriendRecall(friendRecall, bot));
+    public void onReceiveMemberNudgedEvent(@NotNull MemberNudgedEvent memberNudgedEvent) {
+        eventManager.call(new EventNoticeGroupPoke(memberNudgedEvent, bot));
     }
 
     @net.mamoe.mirai.event.EventHandler
-    public void onReceiveGroupRecall(@NotNull MessageRecallEvent.GroupRecall groupRecall) {
-        eventManager.call(new EventNoticeGroupRecall(groupRecall, bot));
+    public void onReceiveBotNudgedEvent(@NotNull BotNudgedEvent botNudgedEvent) {
+        if (botNudgedEvent instanceof BotNudgedEvent.InPrivateSession) {
+            eventManager.call(new EventNoticeFriendPoke(
+                (BotNudgedEvent.InPrivateSession) botNudgedEvent,
+                bot
+            ));
+        } else if (botNudgedEvent instanceof BotNudgedEvent.InGroup) {
+            eventManager.call(new EventNoticeGroupPoke(
+                (BotNudgedEvent.InGroup) botNudgedEvent,
+                bot
+            ));
+        }
+    }
+
+    @net.mamoe.mirai.event.EventHandler
+    public void onReceiveMessageRecall(@NotNull MessageRecallEvent messageRecallEvent) {
+        if (messageRecallEvent instanceof MessageRecallEvent.FriendRecall) {
+            eventManager.call(new EventNoticeFriendRecall(
+                (MessageRecallEvent.FriendRecall) messageRecallEvent,
+                bot
+            ));
+        } else if (messageRecallEvent instanceof MessageRecallEvent.GroupRecall) {
+            eventManager.call(new EventNoticeGroupRecall(
+                (MessageRecallEvent.GroupRecall) messageRecallEvent,
+                bot
+            ));
+        }
+    }
+
+    @net.mamoe.mirai.event.EventHandler
+    public void onReceiveMemberMuteEvent(@NotNull MemberMuteEvent memberMuteEvent) {
+        eventManager.call(new EventNoticeGroupBan(memberMuteEvent, bot));
+    }
+
+    @net.mamoe.mirai.event.EventHandler
+    public void onReceiveBotMuteEvent(@NotNull BotMuteEvent botMuteEvent) {
+        eventManager.call(new EventNoticeGroupBan(botMuteEvent, bot));
+    }
+
+    @net.mamoe.mirai.event.EventHandler
+    public void onReceiveMemberUnmuteEvent(@NotNull MemberUnmuteEvent memberUnmuteEvent) {
+        eventManager.call(new EventNoticeGroupBan(memberUnmuteEvent, bot));
+    }
+
+    @net.mamoe.mirai.event.EventHandler
+    public void onReceiveBotUnmuteEvent(@NotNull BotUnmuteEvent botUnmuteEvent) {
+        eventManager.call(new EventNoticeGroupBan(botUnmuteEvent, bot));
     }
 }

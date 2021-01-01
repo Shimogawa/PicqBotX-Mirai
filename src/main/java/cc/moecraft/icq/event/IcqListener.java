@@ -5,5 +5,5 @@ package cc.moecraft.icq.event;
  * 请考虑使用 {@link EventListener}。
  */
 @Deprecated
-public abstract class IcqListener extends EventListener {
+public abstract class IcqListener implements EventListener {
 }

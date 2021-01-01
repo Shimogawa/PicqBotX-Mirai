@@ -9,8 +9,12 @@ public class EventNotice extends Event {
     /**
      * 事件发起人
      *
-     * 注：在撤回事件中，指撤回消息的人，而不是消息发送者。
+     * 注：
+     * 在撤回事件中，指撤回消息的人，而不是消息发送者。
      * 请使用 {@link EventNoticeRecall#getOperator()} 或 {@link EventNoticeRecall#getAuthor()}
+     *
+     * 在禁言事件中，指发起禁言的管理员，而不是被禁言的人。
+     * 请使用 {}
      */
     protected final User user;
 
