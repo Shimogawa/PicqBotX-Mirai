@@ -93,8 +93,18 @@ public final class PicqMessageTemplate {
     }
 
     /**
+     * 把消息模板转化为 {@link MessageChain}
+     *
+     * @param messageTemplate 消息模板
+     * @return 消息链
+     */
+    public static MessageChain messageTemplateToChain(String messageTemplate) {
+        return MessageUtils.newChain(messageTemplateToList(messageTemplate));
+    }
+
+    /**
      * 把消息模板转化为 {@link MessageContent} 列表。
-     * 可以使用 {@link MessageUtils#newChain(Iterable)} 转化为消息链
+     * 使用 {@link #messageTemplateToChain(String)} 转化为消息链
      *
      * @param messageTemplate 消息模板
      * @return 消息内容列表

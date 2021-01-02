@@ -6,6 +6,9 @@ import cc.moecraft.icq.event.events.notice.EventNoticeRecall;
 import net.mamoe.mirai.event.events.BotEvent;
 
 public abstract class Event {
+    /**
+     * 原始事件。对于 Local 事件，这个字段是 {@code null}
+     */
     protected final BotEvent miraiEvent;
 
     protected final PicqBotX bot;

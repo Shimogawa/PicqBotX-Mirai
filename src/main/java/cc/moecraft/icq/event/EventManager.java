@@ -1,17 +1,24 @@
 package cc.moecraft.icq.event;
 
 import cc.moecraft.icq.PicqBotX;
+import cc.moecraft.icq.PicqConfig;
 import cc.moecraft.icq.command.CommandListener;
+import cc.moecraft.icq.event.events.local.*;
 import cc.moecraft.icq.event.events.message.EventGroupMessage;
 import cc.moecraft.icq.event.events.message.EventMessage;
 import cc.moecraft.icq.event.events.message.EventPrivateMessage;
-import kotlin.NotImplementedError;
+import cc.moecraft.icq.event.events.message.EventTempMessage;
+import cc.moecraft.icq.event.events.notice.*;
+import cc.moecraft.logger.HyLogger;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.*;
 
 public class EventManager {
     private final PicqBotX bot;
+
+    private final HyLogger logger;
 
     private CommandListener commandListener = null;
 
@@ -21,13 +28,30 @@ public class EventManager {
     private final HashMap<String, ArrayList<RegisteredListenerMethod>> registeredMethods = new HashMap<>();
 
     private static final List<Class<? extends Event>> eventClasses = Arrays.asList(
+        EventMessage.class,
         EventGroupMessage.class,
         EventPrivateMessage.class,
-        EventMessage.class
+        EventTempMessage.class,
+
+        EventLocal.class,
+        EventLocalException.class,
+        EventLocalSendMessage.class,
+        EventLocalSendGroupMessage.class,
+        EventLocalSendPrivateMessage.class,
+
+        EventNotice.class,
+        EventNoticeFriendAdd.class,
+        EventNoticeFriendPoke.class,
+        EventNoticeGroupBan.class,
+
+        EventNoticeRecall.class,
+        EventNoticeFriendRecall.class,
+        EventNoticeGroupRecall.class
     );
 
     public EventManager(PicqBotX bot) {
         this.bot = bot;
+        logger = bot.getLoggerManager().getLoggerInstance("EventManager", PicqConfig.getInstance().isDebug());
     }
 
     /**
@@ -95,18 +119,27 @@ public class EventManager {
      *
      * @param listeners 很多个监听器
      */
-    public void registerListeners(EventListener... listeners)
-    {
-        for (EventListener listener : listeners)
-        {
+    public void registerListeners(EventListener... listeners) {
+        for (EventListener listener : listeners) {
             registerListener(listener);
         }
     }
 
-    public void callError(Event event, Throwable throwable)
-    {
-        // TODO
-        throw new NotImplementedError("Call error");
+    public void callError(Event event, Throwable throwable) {
+        if (event instanceof EventLocalException &&
+            ((EventLocalException) event).getParentEvent() instanceof EventLocalException
+        ) {
+            logger.log(throwable);
+            return;
+        }
+        call(new EventLocalException(
+            event.getMiraiEvent(),
+            bot,
+            throwable instanceof InvocationTargetException
+                ? throwable.getCause()
+                : throwable,
+            event
+        ));
     }
 
     public PicqBotX getBot() {

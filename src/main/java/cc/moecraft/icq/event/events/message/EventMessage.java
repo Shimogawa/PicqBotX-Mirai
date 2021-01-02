@@ -2,6 +2,7 @@ package cc.moecraft.icq.event.events.message;
 
 import cc.moecraft.icq.PicqBotX;
 import cc.moecraft.icq.PicqMessageTemplate;
+import cc.moecraft.icq.core.MiraiApi;
 import cc.moecraft.icq.event.Event;
 import net.mamoe.mirai.contact.Contact;
 import net.mamoe.mirai.contact.User;
@@ -56,15 +57,15 @@ public abstract class EventMessage extends Event {
         return eventTime;
     }
 
-    public MessageReceipt<Contact> respond(@Nullable String response) {
+    public @Nullable MessageReceipt<Contact> respond(@Nullable String response) {
         return respond(response, false, false);
     }
 
-    public MessageReceipt<Contact> respond(@Nullable String response, boolean isMessageTemplate) {
+    public @Nullable MessageReceipt<Contact> respond(@Nullable String response, boolean isMessageTemplate) {
         return respond(response, isMessageTemplate, false);
     }
 
-    public MessageReceipt<Contact> respond(@Nullable String response, boolean isMessageTemplate, boolean quote) {
+    public @Nullable MessageReceipt<Contact> respond(@Nullable String response, boolean isMessageTemplate, boolean quote) {
         if (response == null) return null;
         return respond(
             isMessageTemplate
@@ -78,29 +79,28 @@ public abstract class EventMessage extends Event {
         return respond(response, false);
     }
 
-    @SuppressWarnings("unchecked")
     public @Nullable MessageReceipt<Contact> respond(@Nullable MessageChain response, boolean quote) {
         if (response == null) return null;
-        return ((MessageEvent) miraiEvent).getSubject().sendMessage(
-            quote
-                ? MessageSource.quote(rawMessage).plus(response)
-                : response
-        );
+        MessageChain message = quote
+            ? MessageSource.quote(rawMessage).plus(response)
+            : response;
+        if (this instanceof EventGroupMessage) {
+            return bot.getMiraiApi().sendMessage(((EventGroupMessage) this).getGroup(), message);
+        }
+        return bot.getMiraiApi().sendMessage(getSender(), message);
     }
 
-    @SuppressWarnings("unchecked")
     public @Nullable MessageReceipt<Contact> respondPrivateMessage(@Nullable String response, boolean isMessageTemplate) {
         if (response == null) return null;
-        return ((MessageEvent) miraiEvent).getSender().sendMessage(
+        return bot.getMiraiApi().sendMessage(getSender(),
             isMessageTemplate
                 ? MessageUtils.newChain(PicqMessageTemplate.messageTemplateToList(response))
-                : new PlainText(response)
+                : MessageUtils.newChain(new PlainText(response))
         );
     }
 
-    @SuppressWarnings("unchecked")
     public @Nullable MessageReceipt<Contact> respondPrivateMessage(@Nullable MessageChain response) {
         if (response == null) return null;
-        return ((MessageEvent) miraiEvent).getSender().sendMessage(response);
+        return bot.getMiraiApi().sendMessage(getSender(), response);
     }
 }
