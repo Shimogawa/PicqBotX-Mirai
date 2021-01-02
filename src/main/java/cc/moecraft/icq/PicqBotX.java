@@ -1,5 +1,7 @@
 package cc.moecraft.icq;
 
+import cc.moecraft.icq.command.CommandListener;
+import cc.moecraft.icq.command.CommandManager;
 import cc.moecraft.icq.core.MiraiApi;
 import cc.moecraft.icq.core.PicqMiraiEventHandlers;
 import cc.moecraft.icq.event.EventManager;
@@ -27,6 +29,7 @@ public class PicqBotX {
 
     private MiraiApi miraiApi;
     private EventManager eventManager;
+    private CommandManager commandManager;
 
     public PicqBotX() {
         init();
@@ -65,7 +68,7 @@ public class PicqBotX {
         logInitDone(logger, "日志管理器     ", 0, 6);
 
         eventManager = new EventManager(this);
-        logInitDone(logger, "事件管理器     ", 6, 0);
+        logInitDone(logger, "事件管理器     ", 3, 3);
 
         logger.timing.clear();
         logger.log("初始化完成");
@@ -132,6 +135,22 @@ public class PicqBotX {
         logger.log("启动完成");
     }
 
+    /**
+     * 初始化指令管理器
+     *
+     * @param prefixes 前缀
+     */
+    public void enableCommandManager(String... prefixes)
+    {
+        logger.timing.init();
+
+        commandManager = new CommandManager(this, prefixes);
+        eventManager.setCommandListener(new CommandListener(eventManager, commandManager));
+        logInitDone(logger, "指令管理器     ", 6, 0);
+
+        logger.timing.clear();
+    }
+
     public LoggerInstanceManager getLoggerManager() {
         return loggerManager;
     }
@@ -142,5 +161,9 @@ public class PicqBotX {
 
     public EventManager getEventManager() {
         return eventManager;
+    }
+
+    public CommandManager getCommandManager() {
+        return commandManager;
     }
 }

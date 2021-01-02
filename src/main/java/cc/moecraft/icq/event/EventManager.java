@@ -1,6 +1,7 @@
 package cc.moecraft.icq.event;
 
 import cc.moecraft.icq.PicqBotX;
+import cc.moecraft.icq.command.CommandListener;
 import cc.moecraft.icq.event.events.message.EventGroupMessage;
 import cc.moecraft.icq.event.events.message.EventMessage;
 import cc.moecraft.icq.event.events.message.EventPrivateMessage;
@@ -11,6 +12,8 @@ import java.util.*;
 
 public class EventManager {
     private final PicqBotX bot;
+
+    private CommandListener commandListener = null;
 
     @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
     private final ArrayList<EventListener> registeredListeners = new ArrayList<>();
@@ -33,9 +36,10 @@ public class EventManager {
      * @param event 事件对象
      */
     public void call(Event event) {
-        if (event instanceof EventMessage) {
-            // TODO
-            throw new NotImplementedError("Commands");
+        if (event instanceof EventMessage && commandListener != null) {
+            if (!commandListener.check((EventMessage) event)) {
+                return;
+            }
         }
         String mapKey = event.getClass().getName();
         if (!registeredMethods.containsKey(mapKey)) {
@@ -107,5 +111,13 @@ public class EventManager {
 
     public PicqBotX getBot() {
         return bot;
+    }
+
+    public CommandListener getCommandListener() {
+        return commandListener;
+    }
+
+    public void setCommandListener(CommandListener commandListener) {
+        this.commandListener = commandListener;
     }
 }

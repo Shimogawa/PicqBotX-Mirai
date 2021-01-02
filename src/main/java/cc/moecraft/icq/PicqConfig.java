@@ -16,11 +16,19 @@ public class PicqConfig {
 
     private boolean isDebug = false;
 
+    private boolean isMaintenanceMode = false;
+
+    private String maintenanceResponse = "";
+
     private String logPath = "logs";
 
     private String logFileName = "PicqBotX-Log";
 
     private boolean commandsAlsoCallEvents = true;
+
+    private boolean useAsyncCommands = false;
+
+    private String commandArgsSplitRegex = " ";
 
     private Consumer<Throwable> commandErrorHandler = Throwable::printStackTrace;
 
@@ -40,6 +48,24 @@ public class PicqConfig {
 
     public void setDebug(boolean debug) {
         isDebug = debug;
+    }
+
+    public boolean isMaintenanceMode() {
+        return isMaintenanceMode;
+    }
+
+    public PicqConfig setMaintenanceMode(boolean maintenanceMode) {
+        isMaintenanceMode = maintenanceMode;
+        return this;
+    }
+
+    public String getMaintenanceResponse() {
+        return maintenanceResponse;
+    }
+
+    public PicqConfig setMaintenanceResponse(String maintenanceResponse) {
+        this.maintenanceResponse = maintenanceResponse;
+        return this;
     }
 
     public String getLogPath() {
@@ -66,6 +92,24 @@ public class PicqConfig {
 
     public PicqConfig setCommandsAlsoCallEvents(boolean commandsAlsoCallEvents) {
         this.commandsAlsoCallEvents = commandsAlsoCallEvents;
+        return this;
+    }
+
+    public boolean isUseAsyncCommands() {
+        return useAsyncCommands;
+    }
+
+    public PicqConfig setUseAsyncCommands(boolean useAsyncCommands) {
+        this.useAsyncCommands = useAsyncCommands;
+        return this;
+    }
+
+    public String getCommandArgsSplitRegex() {
+        return commandArgsSplitRegex;
+    }
+
+    public PicqConfig setCommandArgsSplitRegex(String commandArgsSplitRegex) {
+        this.commandArgsSplitRegex = commandArgsSplitRegex;
         return this;
     }
 

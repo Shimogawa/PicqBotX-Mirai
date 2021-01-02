@@ -11,6 +11,7 @@ import net.mamoe.mirai.message.data.MessageChain;
 import net.mamoe.mirai.message.data.MessageSource;
 import net.mamoe.mirai.message.data.MessageUtils;
 import net.mamoe.mirai.message.data.PlainText;
+import org.jetbrains.annotations.Nullable;
 
 public abstract class EventMessage extends Event {
     /**
@@ -55,15 +56,16 @@ public abstract class EventMessage extends Event {
         return eventTime;
     }
 
-    public MessageReceipt<Contact> respond(String response) {
+    public MessageReceipt<Contact> respond(@Nullable String response) {
         return respond(response, false, false);
     }
 
-    public MessageReceipt<Contact> respond(String response, boolean isMessageTemplate) {
+    public MessageReceipt<Contact> respond(@Nullable String response, boolean isMessageTemplate) {
         return respond(response, isMessageTemplate, false);
     }
 
-    public MessageReceipt<Contact> respond(String response, boolean isMessageTemplate, boolean quote) {
+    public MessageReceipt<Contact> respond(@Nullable String response, boolean isMessageTemplate, boolean quote) {
+        if (response == null) return null;
         return respond(
             isMessageTemplate
                 ? MessageUtils.newChain(PicqMessageTemplate.messageTemplateToList(response))
@@ -72,12 +74,13 @@ public abstract class EventMessage extends Event {
         );
     }
 
-    public MessageReceipt<Contact> respond(MessageChain response) {
+    public @Nullable MessageReceipt<Contact> respond(@Nullable MessageChain response) {
         return respond(response, false);
     }
 
     @SuppressWarnings("unchecked")
-    public MessageReceipt<Contact> respond(MessageChain response, boolean quote) {
+    public @Nullable MessageReceipt<Contact> respond(@Nullable MessageChain response, boolean quote) {
+        if (response == null) return null;
         return ((MessageEvent) miraiEvent).getSubject().sendMessage(
             quote
                 ? MessageSource.quote(rawMessage).plus(response)
@@ -86,11 +89,18 @@ public abstract class EventMessage extends Event {
     }
 
     @SuppressWarnings("unchecked")
-    public MessageReceipt<Contact> respondPrivateMessage(String response, boolean isMessageTemplate) {
+    public @Nullable MessageReceipt<Contact> respondPrivateMessage(@Nullable String response, boolean isMessageTemplate) {
+        if (response == null) return null;
         return ((MessageEvent) miraiEvent).getSender().sendMessage(
             isMessageTemplate
                 ? MessageUtils.newChain(PicqMessageTemplate.messageTemplateToList(response))
                 : new PlainText(response)
         );
+    }
+
+    @SuppressWarnings("unchecked")
+    public @Nullable MessageReceipt<Contact> respondPrivateMessage(@Nullable MessageChain response) {
+        if (response == null) return null;
+        return ((MessageEvent) miraiEvent).getSender().sendMessage(response);
     }
 }

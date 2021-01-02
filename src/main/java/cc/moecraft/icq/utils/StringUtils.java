@@ -13,4 +13,12 @@ public class StringUtils {
         }
         return sb.toString();
     }
+
+    public static String trimLeft(String original) {
+        int i = 0;
+        while (original.charAt(i) == ' ') {
+            i++;
+        }
+        return original.substring(i);
+    }
 }

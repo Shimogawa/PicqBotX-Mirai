@@ -2,17 +2,25 @@ package cc.moecraft.icq;
 
 import cc.moecraft.icq.utils.StringUtils;
 import net.mamoe.mirai.message.data.*;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.lang.ref.WeakReference;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class PicqMessageTemplate {
+/**
+ * 消息模板工具
+ */
+public final class PicqMessageTemplate {
+    private static boolean hasInitiated = false;
     private static final Timer timer = new Timer(true);
-    private static ConcurrentHashMap<String, WeakReference<MessageContent>> richObjRefMap = new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<String, WeakReference<MessageContent>> richObjRefMap = new ConcurrentHashMap<>();
+
+    private PicqMessageTemplate() { }
 
     public static void init() {
+        if (hasInitiated) return;
         timer.schedule(
             new TimerTask() {
                 @Override
@@ -31,9 +39,22 @@ public class PicqMessageTemplate {
             PicqConfig.getInstance().getScheduledClearWeakRefTimeInterval(),
             PicqConfig.getInstance().getScheduledClearWeakRefTimeInterval()
         );
+        hasInitiated = true;
     }
 
-    public static @Nullable MessageContent getRichObj(String id) {
+    public static @NotNull String allocateRichObj(@NotNull MessageContent messageContent) {
+        if (messageContent instanceof PlainText) {
+            throw new IllegalArgumentException("必须不是文本消息。");
+        }
+        String id;
+        do {
+            id = StringUtils.getRandomStr(PicqConstants.MESSAGE_TMPL_LENGTH);
+        } while (richObjRefMap.containsKey(id));
+        richObjRefMap.put(id, new WeakReference<>(messageContent));
+        return id;
+    }
+
+    public static @Nullable MessageContent getRichObj(@NotNull String id) {
         if (id.length() == PicqConstants.MESSAGE_TMPL_LENGTH) {
             WeakReference<MessageContent> mc = richObjRefMap.get(id);
             return mc == null ? null : mc.get();
@@ -52,18 +73,32 @@ public class PicqMessageTemplate {
             if (sm instanceof PlainText) {
                 sb.append(escape(((PlainText) sm).getContent()));
             } else {
-                String id = StringUtils.getRandomStr(PicqConstants.MESSAGE_TMPL_LENGTH);
-                richObjRefMap.put(id, new WeakReference<>((MessageContent) sm));
-                sb.append('%').append(id).append('%');
+                String id = allocateRichObj((MessageContent) sm);
+                sb.append(PicqConstants.INTERPOLE_CHAR)
+                    .append(id)
+                    .append(PicqConstants.INTERPOLE_CHAR);
             }
         }
         return sb.toString();
     }
 
+    /**
+     * 把消息模板转化为普通字符串，去除转义
+     *
+     * @param messageTemplate 消息模板
+     * @return 普通字符串
+     */
     public static String toSimpleString(String messageTemplate) {
         return unescape(messageTemplate);
     }
 
+    /**
+     * 把消息模板转化为 {@link MessageContent} 列表。
+     * 可以使用 {@link MessageUtils#newChain(Iterable)} 转化为消息链
+     *
+     * @param messageTemplate 消息模板
+     * @return 消息内容列表
+     */
     public static List<MessageContent> messageTemplateToList(String messageTemplate) {
         if (messageTemplate.length() <= 1)
             return Collections.singletonList(new PlainText(messageTemplate));
