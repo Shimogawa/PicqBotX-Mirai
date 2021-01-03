@@ -15,14 +15,73 @@
 
 继承原来的 PicqBotX。
 
-### 注意事项
+## 从原项目迁移
 
-将不会实现以下内容
+将会有一些不同之处：
 
-- 原有的 HTTP API
-- 多账号
+### 配置与创建 `bot`
 
-原有的某些 API 将会保留，但会标注`@Deprecated`并且添加新 API，因为名称已经不适用于基于 Mirai 的新版本（例如`IcqListener`将会变成`EventListener`，但`IcqListener`将会保留）。
+现在的 `config` 变成了单例，配置需要使用
+
+```java
+PicqConfig.modifyConfig((it) -> {
+    it.setXXX();
+    // ...
+});
+```
+
+创建机器人对象：
+
+```java
+PicqBotX bot = new PicqBotX();
+```
+
+现在只支持单账户了。如果要多账户就需要使用不同的 bot 实例。设置账户：
+
+```java
+bot.setAccount(qq, password);
+```
+
+完整代码：
+
+```java
+public class TestBot {
+    public static void main(String[] args) {
+        // 配置
+        PicqConfig.modifyConfig((it) -> {
+            it
+                .setDeviceInfoFile("device.json")
+                .setDebug(true);
+            // ...
+        });
+        // 创建机器人对象
+        PicqBotX bot = new PicqBotX();
+        // 添加一个机器人账户 ( qq号, 密码 )
+        bot.setAccount(123L, "123");
+        // 注册事件监听器, 可以注册多个监听器
+        bot.getEventManager().registerListeners(
+            new TestListener(),
+            new ExceptionListener()
+        );
+        // 启用指令管理器
+        // 这些字符串是指令前缀, 比如指令"!help"的前缀就是"!"
+        bot.enableCommandManager("!", "/");
+        // 注册指令, 可以注册多个指令
+        bot.getCommandManager().registerCommands(
+            new CommandSay(),
+            new CommandTest()
+        );
+        // 启动机器人, 不会占用主线程
+        bot.startBot();
+    }
+}
+```
+
+### 其它
+
+有一些标注了 `@Deprecated` 的名称，替代方案写在了文档里，保留是为了保留与上一版本的兼容性。
+
+重要的是，原有的表示用户、群组等的类全部删除，改为使用 Mirai 内置的类。但是，所有事件的字段全部都与原来一样，使用时只需要修改关于原有 `User` 或 `Group` 类的相关方法即可。`Event` 不需要作任何调整。
 
 
 <a name="license"></a>

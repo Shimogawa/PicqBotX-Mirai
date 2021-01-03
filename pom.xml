@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <name>PicqBotX</name>
+    <name>PicqBotX-Mirai</name>
     <description>A chat bot library for Tencent QQ based on Mirai</description>
     <url>https://git.rebuild.moe/rebuild/PicqBotX-Mirai</url>
 
@@ -40,7 +40,7 @@
 
     <groupId>cc.moecraft</groupId>
     <artifactId>PicqBotX-Mirai</artifactId>
-    <version>0.1-R1+20201231</version>
+    <version>0.1-R2</version>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
