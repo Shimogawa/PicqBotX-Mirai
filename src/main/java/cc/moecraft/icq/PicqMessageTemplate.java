@@ -17,9 +17,13 @@ public final class PicqMessageTemplate {
     private static final Timer timer = new Timer(true);
     private static final ConcurrentHashMap<String, WeakReference<MessageContent>> richObjRefMap = new ConcurrentHashMap<>();
 
-    private PicqMessageTemplate() { }
+    private PicqMessageTemplate() {
+    }
 
-    public static void init() {
+    /**
+     * 初始化消息模板
+     */
+    static void init() {
         if (hasInitiated) return;
         timer.schedule(
             new TimerTask() {
@@ -43,6 +47,12 @@ public final class PicqMessageTemplate {
         hasInitiated = true;
     }
 
+    /**
+     * 将非文本对象转换为消息模板字符串，例如把图片转换为 %12345678%
+     *
+     * @param messageContent 非文本对象
+     * @return 消息模板
+     */
     public static @NotNull String allocateRichObj(@NotNull MessageContent messageContent) {
         if (messageContent instanceof PlainText) {
             throw new IllegalArgumentException("必须不是文本消息。");
@@ -55,6 +65,12 @@ public final class PicqMessageTemplate {
         return id;
     }
 
+    /**
+     * 用消息模板获取非文本对象。可以带%，也可以不带。
+     *
+     * @param id 消息模板或对象 id
+     * @return 非文本对象，如果是 {@code null} 则这个对象已经被垃圾回收或不存在
+     */
     public static @Nullable MessageContent getRichObj(@NotNull String id) {
         if (id.length() == PicqConstants.MESSAGE_TMPL_LENGTH) {
             WeakReference<MessageContent> mc = richObjRefMap.get(id);
@@ -67,6 +83,12 @@ public final class PicqMessageTemplate {
         return null;
     }
 
+    /**
+     * 转换为消息模板
+     *
+     * @param chain 消息链
+     * @return 消息模板
+     */
     public static String toMessageTemplate(MessageChain chain) {
         StringBuilder sb = new StringBuilder();
         for (SingleMessage sm : chain) {

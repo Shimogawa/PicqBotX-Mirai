@@ -137,10 +137,16 @@ public class CommandManager {
         return bot;
     }
 
+    /**
+     * @return 前缀
+     */
     public String[] getPrefixes() {
         return prefixes;
     }
 
+    /**
+     * @return 已注册的所有指令
+     */
     public Map<String, IcqCommand> getCommands() {
         return commands;
     }

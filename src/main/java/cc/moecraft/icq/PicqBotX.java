@@ -12,7 +12,7 @@ import cc.moecraft.logger.LoggerInstanceManager;
 import cc.moecraft.logger.environments.ConsoleColoredEnv;
 import cc.moecraft.logger.environments.FileEnv;
 import cc.moecraft.logger.format.AnsiColor;
-import cc.moecraft.utils.cli.ResourceUtils;
+import cn.hutool.core.util.StrUtil;
 import net.mamoe.mirai.Bot;
 import net.mamoe.mirai.BotFactory;
 import net.mamoe.mirai.utils.BotConfiguration;
@@ -88,18 +88,41 @@ public class PicqBotX {
         setAccount(qq, password);
     }
 
+    /**
+     * 设置机器人账户
+     *
+     * @param qq       qq号
+     * @param password 密码
+     */
     public void setAccount(long qq, @NotNull String password) {
         setAccount(qq, password, new BotConfiguration() {{
-            fileBasedDeviceInfo();
+            if (StrUtil.isEmpty(PicqConfig.getInstance().getDeviceInfoFile()))
+                fileBasedDeviceInfo();
+            else
+                fileBasedDeviceInfo(PicqConfig.getInstance().getDeviceInfoFile());
         }});
     }
 
+    /**
+     * 设置机器人账户
+     *
+     * @param qq          qq号
+     * @param password    密码
+     * @param configBlock 配置 Mirai 机器人的函数
+     */
     public void setAccount(long qq, @NotNull String password, Consumer<BotConfiguration> configBlock) {
         setAccount(qq, password, new BotConfiguration() {{
             configBlock.accept(this);
         }});
     }
 
+    /**
+     * 设置机器人账户
+     *
+     * @param qq               qq号
+     * @param password         密码
+     * @param botConfiguration Mirai 机器人配置
+     */
     public void setAccount(long qq, @NotNull String password, BotConfiguration botConfiguration) {
         if (miraiBot != null) {
             throw new UnsupportedOperationException("不能设置两次账号！");
@@ -107,18 +130,41 @@ public class PicqBotX {
         miraiBot = BotFactory.INSTANCE.newBot(qq, password, botConfiguration);
     }
 
+    /**
+     * 设置机器人账户
+     *
+     * @param qq          qq号
+     * @param passwordMd5 密码的 MD5 哈希
+     */
     public void setAccount(long qq, @NotNull byte[] passwordMd5) {
         setAccount(qq, passwordMd5, new BotConfiguration() {{
-            fileBasedDeviceInfo();
+            if (StrUtil.isEmpty(PicqConfig.getInstance().getDeviceInfoFile()))
+                fileBasedDeviceInfo();
+            else
+                fileBasedDeviceInfo(PicqConfig.getInstance().getDeviceInfoFile());
         }});
     }
 
+    /**
+     * 设置机器人账户
+     *
+     * @param qq          qq号
+     * @param passwordMd5 密码的 MD5 哈希
+     * @param configBlock 配置 Mirai 机器人的函数
+     */
     public void setAccount(long qq, @NotNull byte[] passwordMd5, Consumer<BotConfiguration> configBlock) {
         setAccount(qq, passwordMd5, new BotConfiguration() {{
             configBlock.accept(this);
         }});
     }
 
+    /**
+     * 设置机器人账户
+     *
+     * @param qq               qq号
+     * @param passwordMd5      密码的 MD5 哈希
+     * @param botConfiguration Mirai 机器人配置
+     */
     public void setAccount(long qq, @NotNull byte[] passwordMd5, BotConfiguration botConfiguration) {
         if (miraiBot != null) {
             throw new UnsupportedOperationException("不能设置两次账号！");
@@ -126,6 +172,9 @@ public class PicqBotX {
         miraiBot = BotFactory.INSTANCE.newBot(qq, passwordMd5, botConfiguration);
     }
 
+    /**
+     * 开启机器人
+     */
     public void startBot() {
         if (miraiBot == null) {
             throw new BotNotStartedException();
@@ -142,8 +191,7 @@ public class PicqBotX {
      *
      * @param prefixes 前缀
      */
-    public void enableCommandManager(String... prefixes)
-    {
+    public void enableCommandManager(String... prefixes) {
         logger.timing.init();
 
         commandManager = new CommandManager(this, prefixes);
@@ -153,18 +201,30 @@ public class PicqBotX {
         logger.timing.clear();
     }
 
+    /**
+     * @return 日志管理器
+     */
     public LoggerInstanceManager getLoggerManager() {
         return loggerManager;
     }
 
+    /**
+     * @return Mirai API
+     */
     public MiraiApi getMiraiApi() {
         return miraiApi;
     }
 
+    /**
+     * @return 事件管理器
+     */
     public EventManager getEventManager() {
         return eventManager;
     }
 
+    /**
+     * @return 指令管理器
+     */
     public CommandManager getCommandManager() {
         return commandManager;
     }
