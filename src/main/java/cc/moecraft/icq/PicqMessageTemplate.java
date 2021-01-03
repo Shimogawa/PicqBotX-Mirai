@@ -25,6 +25,7 @@ public final class PicqMessageTemplate {
             new TimerTask() {
                 @Override
                 public void run() {
+                    System.gc();
                     LinkedList<String> shouldRemoveList = new LinkedList<>();
                     for (String k : richObjRefMap.keySet()) {
                         if (richObjRefMap.get(k).get() == null) {
@@ -36,8 +37,8 @@ public final class PicqMessageTemplate {
                     }
                 }
             },
-            PicqConfig.getInstance().getScheduledClearWeakRefTimeInterval(),
-            PicqConfig.getInstance().getScheduledClearWeakRefTimeInterval()
+            PicqConfig.getInstance().getScheduledClearWeakRefTimeInterval() * 1000L,
+            PicqConfig.getInstance().getScheduledClearWeakRefTimeInterval() * 1000L
         );
         hasInitiated = true;
     }
@@ -167,6 +168,9 @@ public final class PicqMessageTemplate {
                 }
             }
             idx++;
+        }
+        if (sb.length() != 0) {
+            msgList.add(new PlainText(sb.toString()));
         }
         return msgList;
     }

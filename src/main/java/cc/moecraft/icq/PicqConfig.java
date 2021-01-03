@@ -24,7 +24,7 @@ public class PicqConfig {
 
     private String logFileName = "PicqBotX-Log";
 
-    private boolean commandsAlsoCallEvents = true;
+    private boolean commandsAlsoCallEvents = false;
 
     private boolean useAsyncCommands = false;
 
