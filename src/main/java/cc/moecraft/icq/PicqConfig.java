@@ -1,5 +1,7 @@
 package cc.moecraft.icq;
 
+import cc.moecraft.logger.environments.ColorSupportLevel;
+
 import java.util.function.Consumer;
 
 public class PicqConfig {
@@ -23,6 +25,8 @@ public class PicqConfig {
     private String logPath = "logs";
 
     private String logFileName = "PicqBotX-Log";
+
+    private ColorSupportLevel colorSupportLevel = ColorSupportLevel.OS_DEPENDENT;
 
     private boolean commandsAlsoCallEvents = false;
 
@@ -83,6 +87,15 @@ public class PicqConfig {
 
     public PicqConfig setLogFileName(String logFileName) {
         this.logFileName = logFileName;
+        return this;
+    }
+
+    public ColorSupportLevel getColorSupportLevel() {
+        return colorSupportLevel;
+    }
+
+    public PicqConfig setColorSupportLevel(ColorSupportLevel colorSupportLevel) {
+        this.colorSupportLevel = colorSupportLevel;
         return this;
     }
 

@@ -9,6 +9,7 @@ import cc.moecraft.icq.exceptions.BotNotStartedException;
 import cc.moecraft.icq.utils.MiscUtils;
 import cc.moecraft.logger.HyLogger;
 import cc.moecraft.logger.LoggerInstanceManager;
+import cc.moecraft.logger.environments.ConsoleColoredEnv;
 import cc.moecraft.logger.environments.FileEnv;
 import cc.moecraft.logger.format.AnsiColor;
 import cc.moecraft.utils.cli.ResourceUtils;
@@ -52,6 +53,7 @@ public class PicqBotX {
         eventManager = new EventManager(this);
         miraiApi = new MiraiApi(this);
 
+        loggerManager.addEnvironment(new ConsoleColoredEnv(PicqConfig.getInstance().getColorSupportLevel()));
         if (!PicqConfig.getInstance().getLogPath().isEmpty()) {
             loggerManager.addEnvironment(new FileEnv(
                 PicqConfig.getInstance().getLogPath(),
