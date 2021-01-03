@@ -9,6 +9,18 @@ import cc.moecraft.icq.event.events.message.EventMessage;
 import cc.moecraft.icq.event.events.message.EventPrivateMessage;
 import cc.moecraft.icq.event.events.message.EventTempMessage;
 import cc.moecraft.icq.event.events.notice.*;
+import cc.moecraft.icq.event.events.notice.groupadmin.EventNoticeGroupAdminChange;
+import cc.moecraft.icq.event.events.notice.groupmember.EventNoticeGroupMemberChange;
+import cc.moecraft.icq.event.events.notice.groupmember.decrease.EventNoticeGroupMemberDecrease;
+import cc.moecraft.icq.event.events.notice.groupmember.decrease.EventNoticeGroupMemberKick;
+import cc.moecraft.icq.event.events.notice.groupmember.decrease.EventNoticeGroupMemberLeave;
+import cc.moecraft.icq.event.events.notice.groupmember.increase.EventNoticeGroupMemberApprove;
+import cc.moecraft.icq.event.events.notice.groupmember.increase.EventNoticeGroupMemberIncrease;
+import cc.moecraft.icq.event.events.notice.groupmember.increase.EventNoticeGroupMemberInvite;
+import cc.moecraft.icq.event.events.request.EventFriendRequest;
+import cc.moecraft.icq.event.events.request.EventGroupAddRequest;
+import cc.moecraft.icq.event.events.request.EventGroupInviteRequest;
+import cc.moecraft.icq.event.events.request.EventRequest;
 import cc.moecraft.logger.HyLogger;
 
 import java.lang.reflect.InvocationTargetException;
@@ -28,6 +40,8 @@ public class EventManager {
     private final HashMap<String, ArrayList<RegisteredListenerMethod>> registeredMethods = new HashMap<>();
 
     private static final List<Class<? extends Event>> eventClasses = Arrays.asList(
+        Event.class,
+
         EventMessage.class,
         EventGroupMessage.class,
         EventPrivateMessage.class,
@@ -46,7 +60,23 @@ public class EventManager {
 
         EventNoticeRecall.class,
         EventNoticeFriendRecall.class,
-        EventNoticeGroupRecall.class
+        EventNoticeGroupRecall.class,
+        EventNoticeGroupPoke.class,
+
+        EventNoticeGroupAdminChange.class,
+
+        EventNoticeGroupMemberChange.class,
+        EventNoticeGroupMemberIncrease.class,
+        EventNoticeGroupMemberApprove.class,
+        EventNoticeGroupMemberInvite.class,
+        EventNoticeGroupMemberDecrease.class,
+        EventNoticeGroupMemberLeave.class,
+        EventNoticeGroupMemberKick.class,
+
+        EventRequest.class,
+        EventFriendRequest.class,
+        EventGroupAddRequest.class,
+        EventGroupInviteRequest.class
     );
 
     public EventManager(PicqBotX bot) {

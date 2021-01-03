@@ -6,7 +6,7 @@ import cc.moecraft.icq.event.events.notice.groupadmin.EventNoticeGroupAdminChang
 import net.mamoe.mirai.contact.User;
 import net.mamoe.mirai.event.events.BotEvent;
 
-public class EventNotice extends Event {
+public abstract class EventNotice extends Event {
     /**
      * 事件发起人
      * <p>

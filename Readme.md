@@ -82,6 +82,12 @@ public class TestBot {
 }
 ```
 
+### API
+
+现在所有 API 迁移到了 `cc.moecraft.icq.core.MiraiApi` 中，并且建议使用该类发送消息，而非使用 Mirai 提供的方法，因为这样会在框架内创建一个发送消息的事件。
+
+使用 `event.getBot().getMiraiApi()` 或从别处获取 Bot 对象来获取 API 对象。
+
 ### 其它
 
 有一些标注了 `@Deprecated` 的名称，替代方案写在了文档里，保留是为了保留与上一版本的兼容性。
@@ -105,10 +111,6 @@ public class TestBot {
 想要将 `MessageChain` （Mirai 中的消息链）变成消息模板，使用 `PicqMessageTemplate.toMessageTemplate`。想要把消息模板变成 `MessageChain`，使用 `PicqMessageTemplate.messageTemplateToChain`。想要去除转义，使用 `PicqMessageTemplate.toSimpleString`。
 
 在所有发送消息的方法中，没有特别指出的**全部**将传入的字符串消息作为消息模板发送（也就是会转成一个消息链，而不是单纯的一个 `PlainText`）。
-
-### API
-
-现在所有 API 迁移到了 `cc.moecraft.icq.core.MiraiApi` 中。并且，建议使用该类发送消息，而非使用 Mirai 提供的方法。因为这样会在框架内创建一个发送消息的事件。
 
 
 <a name="maven"></a>

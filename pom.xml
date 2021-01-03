@@ -40,7 +40,7 @@
 
     <groupId>cc.moecraft</groupId>
     <artifactId>PicqBotX-Mirai</artifactId>
-    <version>0.1-R2</version>
+    <version>0.1-R3</version>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
