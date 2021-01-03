@@ -6,6 +6,7 @@
   一个基于 Mirai 的 Java QQ 机器人类库
   </h4>
   <h5 align="center">
+    <a href="#maven">Maven 导入</a>&nbsp;&nbsp;
     <a href="#license">开源条款</a>
     <br><br>
     <a href="https://jitpack.io/#Shimogawa/PicqBotX-Mirai">
@@ -108,6 +109,59 @@ public class TestBot {
 ### API
 
 现在所有 API 迁移到了 `cc.moecraft.icq.core.MiraiApi` 中。并且，建议使用该类发送消息，而非使用 Mirai 提供的方法。因为这样会在框架内创建一个发送消息的事件。
+
+
+<a name="maven"></a>
+Maven 导入:
+--------
+
+没有添加 JitPack 的 Repo 的话首先添加 Repo, 在 pom 里面把这些粘贴进去:
+
+```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+```
+
+然后添加这个库:
+
+```xml
+<dependency>
+    <groupId>com.github.Shimogawa</groupId>
+    <artifactId>PicqBotX-Mirai</artifactId>
+    <version>0.1-R3</version> <!-- 这里换成最新版本 -->
+</dependency>
+```
+
+然后 Reimport 之后就导入好了!
+
+<br>
+
+<a name="gradle"></a>
+Gradle 导入:
+--------
+
+没有添加 JitPack 的 Repo 的话首先添加 Repo, 在 pom 里面把这些粘贴进去:
+
+```gradle
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+然后添加这个库:
+
+```gradle
+dependencies {
+    implementation 'com.github.Shimogawa:PicqBotX-Mirai:0.1-R3'
+}
+```
 
 <a name="license"></a>
 [开源条款](https://choosealicense.com/licenses/mit/): MIT

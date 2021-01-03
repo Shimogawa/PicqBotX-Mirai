@@ -6,6 +6,11 @@ import cc.moecraft.icq.event.events.message.EventGroupMessage;
 import cc.moecraft.icq.event.events.message.EventPrivateMessage;
 import cc.moecraft.icq.event.events.message.EventTempMessage;
 import cc.moecraft.icq.event.events.notice.*;
+import cc.moecraft.icq.event.events.notice.groupadmin.EventNoticeGroupAdminChange;
+import cc.moecraft.icq.event.events.notice.groupmember.decrease.EventNoticeGroupMemberKick;
+import cc.moecraft.icq.event.events.notice.groupmember.decrease.EventNoticeGroupMemberLeave;
+import cc.moecraft.icq.event.events.notice.groupmember.increase.EventNoticeGroupMemberApprove;
+import cc.moecraft.icq.event.events.notice.groupmember.increase.EventNoticeGroupMemberInvite;
 import kotlin.coroutines.CoroutineContext;
 import net.mamoe.mirai.event.SimpleListenerHost;
 import net.mamoe.mirai.event.events.*;
@@ -104,5 +109,42 @@ public class PicqMiraiEventHandlers extends SimpleListenerHost {
     @net.mamoe.mirai.event.EventHandler
     public void onReceiveBotUnmuteEvent(@NotNull BotUnmuteEvent botUnmuteEvent) {
         eventManager.call(new EventNoticeGroupBan(botUnmuteEvent, bot));
+    }
+
+    @net.mamoe.mirai.event.EventHandler
+    public void onReceiveMemberPermissionChangeEvent(@NotNull MemberPermissionChangeEvent memberPermissionChangeEvent) {
+        eventManager.call(new EventNoticeGroupAdminChange(memberPermissionChangeEvent, bot));
+    }
+
+    @net.mamoe.mirai.event.EventHandler
+    public void onReceiveBotGroupPermissionChangeEvent(@NotNull BotGroupPermissionChangeEvent botGroupPermissionChangeEvent) {
+        eventManager.call(new EventNoticeGroupAdminChange(botGroupPermissionChangeEvent, bot));
+    }
+
+    @net.mamoe.mirai.event.EventHandler
+    public void onReceiveMemberJoinEvent(@NotNull MemberJoinEvent memberJoinEvent) {
+        if (memberJoinEvent instanceof MemberJoinEvent.Invite) {
+            eventManager.call(new EventNoticeGroupMemberInvite(((MemberJoinEvent.Invite) memberJoinEvent), bot));
+        } else if (memberJoinEvent instanceof MemberJoinEvent.Active) {
+            eventManager.call(new EventNoticeGroupMemberApprove(((MemberJoinEvent.Active) memberJoinEvent), bot));
+        }
+    }
+
+    @net.mamoe.mirai.event.EventHandler
+    public void onReceiveBotJoinGroupEvent(@NotNull BotJoinGroupEvent botJoinGroupEvent) {
+        if (botJoinGroupEvent instanceof BotJoinGroupEvent.Invite) {
+            eventManager.call(new EventNoticeGroupMemberInvite((BotJoinGroupEvent.Invite) botJoinGroupEvent, bot));
+        } else if (botJoinGroupEvent instanceof BotJoinGroupEvent.Active) {
+            eventManager.call(new EventNoticeGroupMemberApprove((BotJoinGroupEvent.Active) botJoinGroupEvent, bot));
+        }
+    }
+
+    @net.mamoe.mirai.event.EventHandler
+    public void onReceiveMemberLeaveEvent(@NotNull MemberLeaveEvent memberLeaveEvent) {
+        if (memberLeaveEvent instanceof MemberLeaveEvent.Kick) {
+            eventManager.call(new EventNoticeGroupMemberKick(((MemberLeaveEvent.Kick) memberLeaveEvent), bot));
+        } else if (memberLeaveEvent instanceof MemberLeaveEvent.Quit) {
+            eventManager.call(new EventNoticeGroupMemberLeave(((MemberLeaveEvent.Quit) memberLeaveEvent), bot));
+        }
     }
 }
