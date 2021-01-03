@@ -2,7 +2,6 @@ package cc.moecraft.icq.event.events.message;
 
 import cc.moecraft.icq.PicqBotX;
 import cc.moecraft.icq.PicqMessageTemplate;
-import cc.moecraft.icq.core.MiraiApi;
 import cc.moecraft.icq.event.Event;
 import net.mamoe.mirai.contact.Contact;
 import net.mamoe.mirai.contact.User;
@@ -57,15 +56,40 @@ public abstract class EventMessage extends Event {
         return eventTime;
     }
 
+    /**
+     * 不引用地回复一条消息
+     *
+     * @param response 回复（消息模板）
+     * @return 回执
+     */
     public @Nullable MessageReceipt<Contact> respond(@Nullable String response) {
-        return respond(response, false, false);
+        return respond(response, true, false);
     }
 
+    /**
+     * 不引用地回复一条消息
+     *
+     * @param response          回复
+     * @param isMessageTemplate 是否是消息模板
+     * @return 回执
+     */
     public @Nullable MessageReceipt<Contact> respond(@Nullable String response, boolean isMessageTemplate) {
         return respond(response, isMessageTemplate, false);
     }
 
-    public @Nullable MessageReceipt<Contact> respond(@Nullable String response, boolean isMessageTemplate, boolean quote) {
+    /**
+     * 回复一条消息
+     *
+     * @param response          回复
+     * @param isMessageTemplate 是否是消息模板
+     * @param quote             是否引用
+     * @return 回执
+     */
+    public @Nullable MessageReceipt<Contact> respond(
+        @Nullable String response,
+        boolean isMessageTemplate,
+        boolean quote
+    ) {
         if (response == null) return null;
         return respond(
             isMessageTemplate
@@ -75,10 +99,23 @@ public abstract class EventMessage extends Event {
         );
     }
 
+    /**
+     * 不引用地回复一条消息
+     *
+     * @param response 回复
+     * @return 回执
+     */
     public @Nullable MessageReceipt<Contact> respond(@Nullable MessageChain response) {
         return respond(response, false);
     }
 
+    /**
+     * 回复一条消息
+     *
+     * @param response 回复
+     * @param quote    是否引用
+     * @return 回执
+     */
     public @Nullable MessageReceipt<Contact> respond(@Nullable MessageChain response, boolean quote) {
         if (response == null) return null;
         MessageChain message = quote
@@ -90,7 +127,17 @@ public abstract class EventMessage extends Event {
         return bot.getMiraiApi().sendMessage(getSender(), message);
     }
 
-    public @Nullable MessageReceipt<Contact> respondPrivateMessage(@Nullable String response, boolean isMessageTemplate) {
+    /**
+     * 私聊回复一条消息
+     *
+     * @param response          回复
+     * @param isMessageTemplate 是否消息模板
+     * @return 回执
+     */
+    public @Nullable MessageReceipt<Contact> respondPrivateMessage(
+        @Nullable String response,
+        boolean isMessageTemplate
+    ) {
         if (response == null) return null;
         return bot.getMiraiApi().sendMessage(getSender(),
             isMessageTemplate
@@ -99,6 +146,12 @@ public abstract class EventMessage extends Event {
         );
     }
 
+    /**
+     * 私聊回复一条消息
+     *
+     * @param response 回复
+     * @return 回执
+     */
     public @Nullable MessageReceipt<Contact> respondPrivateMessage(@Nullable MessageChain response) {
         if (response == null) return null;
         return bot.getMiraiApi().sendMessage(getSender(), response);

@@ -6,8 +6,12 @@
   一个基于 Mirai 的 Java QQ 机器人类库
   </h4>
   <h5 align="center">
-<a href="#license">开源条款</a>
-</h5>
+    <a href="#license">开源条款</a>
+    <br><br>
+    <a href="https://jitpack.io/#Shimogawa/PicqBotX-Mirai">
+      <img src="https://jitpack.io/v/Shimogawa/PicqBotX-Mirai.svg"></img>
+    </a>
+  </h5>
   <br>
   <br>
   <br>
@@ -83,6 +87,27 @@ public class TestBot {
 
 重要的是，原有的表示用户、群组等的类全部删除，改为使用 Mirai 内置的类。但是，所有事件的字段全部都与原来一样，使用时只需要修改关于原有 `User` 或 `Group` 类的相关方法即可。`Event` 不需要作任何调整。
 
+### 新功能
+
+#### 消息模板
+
+也就是以前的 CQ 码的简化版。`event.getMessage()` 返回的即是消息模板。
+
+消息模板中非文本对象（图片、At 等）的格式是 `%<id>%`，其中 `id` 是自动生成的字符串。它存在一张哈希表中，并且值是那个非文本对象的 `WeakReference`。这个表会定时清理，时间的设置在 `PicqConfig.setScheduledClearWeakRefTimeInterval(long)`。消息模板中的 `%` 会变成 `\%`，`\` 会变成 `\\`。例如：
+
+```
+这是一个图片: %1ufD9Ca0%, 这是一个百分号: \%, 这是一个反斜杠和另一个图片: \\%mRs3a8qV%
+```
+
+其中，`%1ufD9Ca0%` 和 `%mRs3a8qV%` 都是图片。
+
+想要将 `MessageChain` （Mirai 中的消息链）变成消息模板，使用 `PicqMessageTemplate.toMessageTemplate`。想要把消息模板变成 `MessageChain`，使用 `PicqMessageTemplate.messageTemplateToChain`。想要去除转义，使用 `PicqMessageTemplate.toSimpleString`。
+
+在所有发送消息的方法中，没有特别指出的**全部**将传入的字符串消息作为消息模板发送（也就是会转成一个消息链，而不是单纯的一个 `PlainText`）。
+
+### API
+
+现在所有 API 迁移到了 `cc.moecraft.icq.core.MiraiApi` 中。并且，建议使用该类发送消息，而非使用 Mirai 提供的方法。因为这样会在框架内创建一个发送消息的事件。
 
 <a name="license"></a>
 [开源条款](https://choosealicense.com/licenses/mit/): MIT
