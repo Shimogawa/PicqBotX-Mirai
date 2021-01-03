@@ -18,7 +18,7 @@
   <br>
 </h1>
 
-继承原来的 PicqBotX。
+继承原来的 [PicqBotX][picqbotx-legacy]。
 
 ## 从原项目迁移
 
@@ -134,7 +134,7 @@ Maven 导入:
 <dependency>
     <groupId>com.github.Shimogawa</groupId>
     <artifactId>PicqBotX-Mirai</artifactId>
-    <version>0.1-R3</version> <!-- 这里换成最新版本 -->
+    <version>0.2.0</version> <!-- 这里换成最新版本 -->
 </dependency>
 ```
 
@@ -161,10 +161,13 @@ allprojects {
 
 ```gradle
 dependencies {
-    implementation 'com.github.Shimogawa:PicqBotX-Mirai:0.1-R3'
+    implementation 'com.github.Shimogawa:PicqBotX-Mirai:0.2.0'
 }
 ```
 
 <a name="license"></a>
 [开源条款](https://choosealicense.com/licenses/mit/): MIT
 --------
+
+
+[picqbotx-legacy]: https://github.com/HyDevelop/PicqBotX
