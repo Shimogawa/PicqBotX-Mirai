@@ -85,6 +85,11 @@ public class PicqConfig {
     private @Nullable String deviceInfoFile = null;
 
     /**
+     * 默认是否使用消息模板发送消息
+     */
+    private boolean defaultSendUseMessageTemplate = true;
+
+    /**
      * 执行垃圾回收与清理消息模板字典的时间间隔。单位：秒
      */
     private long scheduledClearWeakRefTimeInterval = 60 * 60L;
@@ -178,6 +183,15 @@ public class PicqConfig {
 
     public PicqConfig setCommandErrorHandler(Consumer<Throwable> commandErrorHandler) {
         this.commandErrorHandler = commandErrorHandler;
+        return this;
+    }
+
+    public boolean isDefaultSendUseMessageTemplate() {
+        return defaultSendUseMessageTemplate;
+    }
+
+    public PicqConfig setDefaultSendUseMessageTemplate(boolean defaultSendUseMessageTemplate) {
+        this.defaultSendUseMessageTemplate = defaultSendUseMessageTemplate;
         return this;
     }
 

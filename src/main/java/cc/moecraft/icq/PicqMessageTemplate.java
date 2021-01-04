@@ -121,7 +121,7 @@ public final class PicqMessageTemplate {
      * @param messageTemplate 消息模板
      * @return 消息链
      */
-    public static MessageChain messageTemplateToChain(String messageTemplate) {
+    public static @NotNull MessageChain messageTemplateToChain(@NotNull String messageTemplate) {
         return MessageUtils.newChain(messageTemplateToList(messageTemplate));
     }
 
@@ -132,7 +132,7 @@ public final class PicqMessageTemplate {
      * @param messageTemplate 消息模板
      * @return 消息内容列表
      */
-    public static List<MessageContent> messageTemplateToList(String messageTemplate) {
+    public static List<MessageContent> messageTemplateToList(@NotNull String messageTemplate) {
         if (messageTemplate.length() <= 1)
             return Collections.singletonList(new PlainText(messageTemplate));
         StringBuilder sb = new StringBuilder();

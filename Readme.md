@@ -110,7 +110,7 @@ public class TestBot {
 
 想要将 `MessageChain` （Mirai 中的消息链）变成消息模板，使用 `PicqMessageTemplate.toMessageTemplate`。想要把消息模板变成 `MessageChain`，使用 `PicqMessageTemplate.messageTemplateToChain`。想要去除转义，使用 `PicqMessageTemplate.toSimpleString`。
 
-在所有发送消息的方法中，没有特别指出的**全部**将传入的字符串消息作为消息模板发送（也就是会转成一个消息链，而不是单纯的一个 `PlainText`）。
+在所有发送消息的方法中，默认**全部**将传入的字符串消息作为消息模板发送（也就是会转成一个消息链，而不是单纯的一个 `PlainText`）。可以在配置中设置 `defaultSendUseMessageTemplate` 字段修改这个配置。
 
 
 <a name="maven"></a>

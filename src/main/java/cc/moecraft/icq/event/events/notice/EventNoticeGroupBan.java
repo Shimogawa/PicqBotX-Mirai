@@ -3,35 +3,29 @@ package cc.moecraft.icq.event.events.notice;
 import cc.moecraft.icq.PicqBotX;
 import net.mamoe.mirai.contact.Group;
 import net.mamoe.mirai.contact.Member;
+import net.mamoe.mirai.contact.NormalMember;
 import net.mamoe.mirai.event.events.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
 public final class EventNoticeGroupBan extends EventNotice {
-    public enum BanType {
-        BAN,
-        LIFT_BAN
-    }
-
     private final BanType type;
-
     private final long groupId;
-
     private final Group group;
-
     private final long operatorId;
-
     private final Member operator;
-
+    /**
+     * （之前或将要）被禁言的成员 QQ 号
+     */
     private final long bannedMemberId;
-
+    /**
+     * （之前或将要）被禁言的成员
+     */
     private final Member bannedMember;
-
     @Deprecated
     @SuppressWarnings("DeprecatedIsStillUsed")
     private final long duration;
-
     /**
      * 如果是解除禁言，时长会是 0
      */
@@ -145,5 +139,32 @@ public final class EventNoticeGroupBan extends EventNotice {
 
     public long getDurationSeconds() {
         return durationSeconds;
+    }
+
+    /**
+     * 解除禁言
+     *
+     * @throws net.mamoe.mirai.contact.PermissionDeniedException 无权限修改时抛出
+     */
+    public void unmute() {
+        if (bannedMember instanceof NormalMember) {
+            ((NormalMember) bannedMember).unmute();
+        }
+    }
+
+    /**
+     * 禁言
+     *
+     * @param length 时长（秒），可以是 0 秒 ~ 30 天
+     * @throws IllegalStateException                             时长超过范围时抛出
+     * @throws net.mamoe.mirai.contact.PermissionDeniedException 无权限修改时抛出
+     */
+    public void mute(int length) {
+        bannedMember.mute(length);
+    }
+
+    public enum BanType {
+        BAN,
+        LIFT_BAN
     }
 }

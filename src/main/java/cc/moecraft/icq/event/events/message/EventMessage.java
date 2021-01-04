@@ -1,16 +1,16 @@
 package cc.moecraft.icq.event.events.message;
 
 import cc.moecraft.icq.PicqBotX;
+import cc.moecraft.icq.PicqConfig;
 import cc.moecraft.icq.PicqMessageTemplate;
 import cc.moecraft.icq.event.Event;
+import cc.moecraft.icq.utils.MsgUtils;
 import net.mamoe.mirai.contact.Contact;
 import net.mamoe.mirai.contact.User;
 import net.mamoe.mirai.event.events.MessageEvent;
 import net.mamoe.mirai.message.MessageReceipt;
 import net.mamoe.mirai.message.data.MessageChain;
 import net.mamoe.mirai.message.data.MessageSource;
-import net.mamoe.mirai.message.data.MessageUtils;
-import net.mamoe.mirai.message.data.PlainText;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class EventMessage extends Event {
@@ -59,11 +59,11 @@ public abstract class EventMessage extends Event {
     /**
      * 不引用地回复一条消息
      *
-     * @param response 回复（消息模板）
+     * @param response 回复（默认消息模板）
      * @return 回执
      */
     public @Nullable MessageReceipt<Contact> respond(@Nullable String response) {
-        return respond(response, true, false);
+        return respond(response, PicqConfig.getInstance().isDefaultSendUseMessageTemplate(), false);
     }
 
     /**
@@ -91,12 +91,7 @@ public abstract class EventMessage extends Event {
         boolean quote
     ) {
         if (response == null) return null;
-        return respond(
-            isMessageTemplate
-                ? MessageUtils.newChain(PicqMessageTemplate.messageTemplateToList(response))
-                : MessageUtils.newChain(new PlainText(response)),
-            quote
-        );
+        return respond(MsgUtils.toMessageChain(response, isMessageTemplate), quote);
     }
 
     /**
@@ -129,6 +124,15 @@ public abstract class EventMessage extends Event {
 
     /**
      * 私聊回复一条消息
+     * @param response 回复（默认消息模板）
+     * @return 回执
+     */
+    public @Nullable MessageReceipt<Contact> respondPrivateMessage(@Nullable String response) {
+        return respondPrivateMessage(response, PicqConfig.getInstance().isDefaultSendUseMessageTemplate());
+    }
+
+    /**
+     * 私聊回复一条消息
      *
      * @param response          回复
      * @param isMessageTemplate 是否消息模板
@@ -139,11 +143,7 @@ public abstract class EventMessage extends Event {
         boolean isMessageTemplate
     ) {
         if (response == null) return null;
-        return bot.getMiraiApi().sendMessage(getSender(),
-            isMessageTemplate
-                ? MessageUtils.newChain(PicqMessageTemplate.messageTemplateToList(response))
-                : MessageUtils.newChain(new PlainText(response))
-        );
+        return bot.getMiraiApi().sendMessage(getSender(), MsgUtils.toMessageChain(response, isMessageTemplate));
     }
 
     /**
