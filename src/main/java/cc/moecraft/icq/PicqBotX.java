@@ -54,7 +54,7 @@ public class PicqBotX {
         miraiApi = new MiraiApi(this);
 
         loggerManager.addEnvironment(new ConsoleColoredEnv(PicqConfig.getInstance().getColorSupportLevel()));
-        if (!PicqConfig.getInstance().getLogPath().isEmpty()) {
+        if (!StrUtil.isEmpty(PicqConfig.getInstance().getLogPath())) {
             loggerManager.addEnvironment(new FileEnv(
                 PicqConfig.getInstance().getLogPath(),
                 PicqConfig.getInstance().getLogFileName()
