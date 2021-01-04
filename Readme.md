@@ -10,8 +10,9 @@
     <a href="#license">开源条款</a>
     <br><br>
     <a href="https://jitpack.io/#Shimogawa/PicqBotX-Mirai">
-      <img src="https://jitpack.io/v/Shimogawa/PicqBotX-Mirai.svg"></img>
+      <img src="https://jitpack.io/v/Shimogawa/PicqBotX-Mirai.svg">
     </a>
+    <img src="https://github.com/Shimogawa/PicqBotX-Mirai/workflows/Maven%20Build/badge.svg">
   </h5>
   <br>
   <br>
@@ -117,6 +118,8 @@ public class TestBot {
 Maven 导入:
 --------
 
+版本：[![](https://jitpack.io/v/Shimogawa/PicqBotX-Mirai.svg)](https://jitpack.io/#Shimogawa/PicqBotX-Mirai)
+
 没有添加 JitPack 的 Repo 的话首先添加 Repo, 在 pom 里面把这些粘贴进去:
 
 ```xml
@@ -134,7 +137,7 @@ Maven 导入:
 <dependency>
     <groupId>com.github.Shimogawa</groupId>
     <artifactId>PicqBotX-Mirai</artifactId>
-    <version>0.2.0</version> <!-- 这里换成最新版本 -->
+    <version>0.2.1</version> <!-- 这里换成最新版本 -->
 </dependency>
 ```
 

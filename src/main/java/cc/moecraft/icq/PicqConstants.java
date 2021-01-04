@@ -7,5 +7,5 @@ public class PicqConstants {
 
     public static final String ASCII_ICON_RES = "splash";
 
-    public static final String PICQ_VERSION = "0.2.0";
+    public static final String PICQ_VERSION = "0.2.1";
 }
