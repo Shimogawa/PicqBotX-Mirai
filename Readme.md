@@ -7,7 +7,8 @@
   </h4>
   <h5 align="center">
     <a href="#maven">Maven 导入</a>&nbsp;&nbsp;
-    <a href="#license">开源条款</a>
+    <a href="#license">开源条款</a>&nbsp;&nbsp;
+    <a href="https://www.rebuild.moe/PicqBotX-Mirai">开发文档(JavaDoc)</a>
     <br><br>
     <a href="https://jitpack.io/#Shimogawa/PicqBotX-Mirai">
       <img src="https://jitpack.io/v/Shimogawa/PicqBotX-Mirai.svg">
