@@ -45,7 +45,7 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <mirai.version>2.0-M2-1</mirai.version>
+        <mirai.version>2.0-M2-2</mirai.version>
     </properties>
 
     <repositories>
