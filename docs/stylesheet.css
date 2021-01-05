@@ -289,7 +289,7 @@ Page layout container styles
 .contentContainer .description dl dd, .contentContainer .details dl dd, .serializedFormContainer dl dd {
     margin:5px 0 10px 0px;
     font-size:14px;
-    font-family:'Roboto Mono',monospace;
+    font-family:'Roboto Mono', 'Noto Serif SC', monospace;
 }
 .serializedFormContainer dl.nameValue dt {
     margin-left:1px;
