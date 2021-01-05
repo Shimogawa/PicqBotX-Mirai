@@ -22,21 +22,28 @@ import java.util.function.Consumer;
 
 import static cc.moecraft.icq.utils.MiscUtils.logInitDone;
 
+/**
+ * PicqBotX 机器人
+ */
 public class PicqBotX {
-    private Bot miraiBot = null;
-
     private final LoggerInstanceManager loggerManager = new LoggerInstanceManager();
+    private Bot miraiBot = null;
     private HyLogger logger;
 
     private MiraiApi miraiApi;
     private EventManager eventManager;
     private CommandManager commandManager;
 
+    /**
+     * 初始化机器人
+     */
     public PicqBotX() {
         init();
     }
 
     /**
+     * 获取 Mirai 机器人
+     * <p>
      * 如果机器人没有启动（没有使用 {@link #setAccount(long, String)}），则会抛出
      * {@link BotNotStartedException}
      *
@@ -202,6 +209,8 @@ public class PicqBotX {
     }
 
     /**
+     * 获取日志管理器
+     *
      * @return 日志管理器
      */
     public LoggerInstanceManager getLoggerManager() {
@@ -209,6 +218,8 @@ public class PicqBotX {
     }
 
     /**
+     * 获取 Mirai API
+     *
      * @return Mirai API
      */
     public MiraiApi getMiraiApi() {
@@ -216,6 +227,8 @@ public class PicqBotX {
     }
 
     /**
+     * 获取事件管理器
+     *
      * @return 事件管理器
      */
     public EventManager getEventManager() {
@@ -223,6 +236,8 @@ public class PicqBotX {
     }
 
     /**
+     * 获取指令管理器
+     *
      * @return 指令管理器
      */
     public CommandManager getCommandManager() {

@@ -5,6 +5,12 @@ import kotlin.DeprecationLevel;
 import kotlin.NotImplementedError;
 import net.mamoe.mirai.event.events.BotEvent;
 
+/**
+ * 上传群文件事件
+ *
+ * <h2>不要使用！</h2>
+ * Mirai 没有提供这个接口
+ */
 @java.lang.Deprecated
 @kotlin.Deprecated(message = "不要使用！Mirai 没有提供这个接口。", level = DeprecationLevel.ERROR)
 public final class EventNoticeGroupUpload extends EventNotice {

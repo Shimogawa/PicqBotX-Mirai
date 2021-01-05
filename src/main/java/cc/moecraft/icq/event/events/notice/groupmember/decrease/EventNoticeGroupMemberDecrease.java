@@ -6,6 +6,9 @@ import net.mamoe.mirai.contact.NormalMember;
 import net.mamoe.mirai.event.events.BotLeaveEvent;
 import net.mamoe.mirai.event.events.MemberLeaveEvent;
 
+/**
+ * 群组成员减少事件
+ */
 public abstract class EventNoticeGroupMemberDecrease extends EventNoticeGroupMemberChange {
     public EventNoticeGroupMemberDecrease(MemberLeaveEvent miraiEvent, PicqBotX bot, NormalMember member) {
         super(miraiEvent, bot, member);

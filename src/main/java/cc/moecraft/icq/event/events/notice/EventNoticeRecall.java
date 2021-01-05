@@ -1,10 +1,13 @@
 package cc.moecraft.icq.event.events.notice;
 
-import cc.moecraft.icq.PicqBotX;;
+import cc.moecraft.icq.PicqBotX;
 import net.mamoe.mirai.Bot;
 import net.mamoe.mirai.contact.User;
 import net.mamoe.mirai.event.events.MessageRecallEvent;
 
+/**
+ * 撤回消息事件
+ */
 public abstract class EventNoticeRecall extends EventNotice {
     /**
      * 撤回消息的人
@@ -31,14 +34,29 @@ public abstract class EventNoticeRecall extends EventNotice {
         this.eventTime = miraiEvent.getMessageTime();
     }
 
+    /**
+     * 获取撤回消息的人
+     *
+     * @return 撤回消息的人
+     */
     public User getOperator() {
         return operator;
     }
 
+    /**
+     * 获取消息发送者
+     *
+     * @return 消息发送者
+     */
     public User getAuthor() {
         return author;
     }
 
+    /**
+     * 获取事件时间
+     *
+     * @return 事件时间
+     */
     public int getEventTime() {
         return eventTime;
     }

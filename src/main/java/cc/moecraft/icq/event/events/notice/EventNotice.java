@@ -6,11 +6,13 @@ import cc.moecraft.icq.event.events.notice.groupadmin.EventNoticeGroupAdminChang
 import net.mamoe.mirai.contact.User;
 import net.mamoe.mirai.event.events.BotEvent;
 
+/**
+ * 通知事件
+ */
 public abstract class EventNotice extends Event {
     /**
      * 事件发起人
-     * <p>
-     * 注：
+     * <h2>注意！</h2>
      * 在撤回事件中，指撤回消息的人，而不是消息发送者。
      * 请使用 {@link EventNoticeRecall#getOperator()} 或 {@link EventNoticeRecall#getAuthor()}
      * <p>
@@ -33,6 +35,25 @@ public abstract class EventNotice extends Event {
         this.userId = user.getId();
     }
 
+    /**
+     * 获取事件发起人
+     * <h2>注意！</h2>
+     * 在撤回事件中，指撤回消息的人，而不是消息发送者。
+     * 请使用 {@link EventNoticeRecall#getOperator()} 或 {@link EventNoticeRecall#getAuthor()}
+     * <p>
+     * 在禁言事件中，指发起禁言的管理员，而不是被禁言的人。
+     * 请使用 {@link EventNoticeGroupBan#getOperator()} 或 {@link EventNoticeGroupBan#getBannedMember()}。
+     * <p>
+     * 在管理员变动事件中，指发生变动的成员。
+     * 请使用 {@link EventNoticeGroupAdminChange#getMember()}。
+     *
+     * @return 事件发起人
+     * @see EventNoticeRecall#getOperator()
+     * @see EventNoticeRecall#getAuthor()
+     * @see EventNoticeGroupBan#getOperator()
+     * @see EventNoticeGroupBan#getBannedMember()
+     * @see EventNoticeGroupAdminChange#getMember()
+     */
     public User getUser() {
         return user;
     }

@@ -9,6 +9,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
+/**
+ * 群组禁言事件
+ */
 public final class EventNoticeGroupBan extends EventNotice {
     private final BanType type;
     private final long groupId;
@@ -104,39 +107,86 @@ public final class EventNoticeGroupBan extends EventNotice {
         this.durationSeconds = durationSeconds;
     }
 
+    /**
+     * 获取禁言事件类型
+     *
+     * @return 禁言事件类型
+     */
     public BanType getType() {
         return type;
     }
 
+    /**
+     * 获取群号
+     *
+     * @return 群号
+     */
     public long getGroupId() {
         return groupId;
     }
 
+    /**
+     * 获取群
+     *
+     * @return 群
+     */
     public Group getGroup() {
         return group;
     }
 
+    /**
+     * 获取操作人 QQ 号
+     *
+     * @return 操作人 QQ 号
+     */
     public long getOperatorId() {
         return operatorId;
     }
 
+    /**
+     * 获取操作人
+     *
+     * @return 操作人
+     */
     public Member getOperator() {
         return operator;
     }
 
+    /**
+     * 获取（之前或将要）被禁言的成员 QQ 号
+     *
+     * @return （之前或将要）被禁言的成员 QQ 号
+     */
     public long getBannedMemberId() {
         return bannedMemberId;
     }
 
+    /**
+     * 获取（之前或将要）被禁言的成员
+     *
+     * @return （之前或将要）被禁言的成员
+     */
     public Member getBannedMember() {
         return bannedMember;
     }
 
+    /**
+     * 获取禁言时长。如果是解除禁言，时长会是 0。
+     * 请考虑使用 {@link #getDurationSeconds()}
+     *
+     * @return 禁言时长。如果是解除禁言，时长会是 0
+     * @see #getDurationSeconds()
+     */
     @Deprecated
     public long getDuration() {
         return duration;
     }
 
+    /**
+     * 获取禁言时长。如果是解除禁言，时长会是 0
+     *
+     * @return 禁言时长。如果是解除禁言，时长会是 0
+     */
     public long getDurationSeconds() {
         return durationSeconds;
     }
@@ -163,8 +213,18 @@ public final class EventNoticeGroupBan extends EventNotice {
         bannedMember.mute(length);
     }
 
+    /**
+     * 禁言事件类型
+     */
     public enum BanType {
+        /**
+         * 禁言
+         */
         BAN,
+
+        /**
+         * 解除禁言
+         */
         LIFT_BAN
     }
 }

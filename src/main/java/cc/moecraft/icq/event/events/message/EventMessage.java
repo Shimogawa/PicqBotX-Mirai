@@ -13,18 +13,37 @@ import net.mamoe.mirai.message.data.MessageChain;
 import net.mamoe.mirai.message.data.MessageSource;
 import org.jetbrains.annotations.Nullable;
 
+/**
+ * 消息事件
+ */
 public abstract class EventMessage extends Event {
     /**
-     * Message Template
+     * 消息（默认是消息模板）
+     *
+     * @see PicqMessageTemplate
      */
     protected final String message;
 
+    /**
+     * 原消息（消息链）
+     */
     protected final MessageChain rawMessage;
 
+    /**
+     * 发送者 QQ 号
+     */
     protected final long senderId;
 
+    /**
+     * 发送者（好友或群员）
+     */
     protected final User sender;
 
+    /**
+     * 事件时间
+     *
+     * @see Event#time
+     */
     protected final int eventTime;
 
     public EventMessage(MessageEvent miraiEvent, PicqBotX bot) {
@@ -36,22 +55,51 @@ public abstract class EventMessage extends Event {
         this.eventTime = miraiEvent.getTime();
     }
 
+    /**
+     * 获取消息（默认是消息模板）
+     *
+     * @return 消息（默认是消息模板）
+     * @see PicqMessageTemplate
+     */
     public String getMessage() {
         return message;
     }
 
+    /**
+     * 获取原消息（消息链）
+     *
+     * @return 原消息
+     */
     public MessageChain getRawMessage() {
         return rawMessage;
     }
 
+    /**
+     * 获取发送者 QQ 号
+     *
+     * @return 发送者 QQ 号
+     */
     public long getSenderId() {
         return senderId;
     }
 
+    /**
+     * 获取发送者（好友或群员）
+     *
+     * @return 发送者（好友或群员）
+     * @see net.mamoe.mirai.contact.Member
+     * @see net.mamoe.mirai.contact.Friend
+     */
     public User getSender() {
         return sender;
     }
 
+    /**
+     * 获取事件时间
+     *
+     * @return 事件时间
+     * @see Event#getTime()
+     */
     public int getEventTime() {
         return eventTime;
     }
@@ -124,6 +172,7 @@ public abstract class EventMessage extends Event {
 
     /**
      * 私聊回复一条消息
+     *
      * @param response 回复（默认消息模板）
      * @return 回执
      */

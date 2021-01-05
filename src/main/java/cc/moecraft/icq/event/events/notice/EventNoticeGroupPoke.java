@@ -6,6 +6,9 @@ import net.mamoe.mirai.contact.Member;
 import net.mamoe.mirai.event.events.BotNudgedEvent;
 import net.mamoe.mirai.event.events.MemberNudgedEvent;
 
+/**
+ * 群组戳一戳事件
+ */
 public final class EventNoticeGroupPoke extends EventNotice {
     /**
      * 被戳的人的 QQ 号
@@ -57,26 +60,56 @@ public final class EventNoticeGroupPoke extends EventNotice {
         this.groupId = group.getId();
     }
 
+    /**
+     * 获取被戳的人的 QQ 号
+     *
+     * @return 被戳的人的 QQ 号
+     */
     public long getTargetId() {
         return targetId;
     }
 
+    /**
+     * 获取被戳的人
+     *
+     * @return 被戳的人
+     */
     public Member getTarget() {
         return target;
     }
 
+    /**
+     * 获取发起戳一戳的人的 QQ 号
+     *
+     * @return 发起戳一戳的人的 QQ 号
+     */
     public long getFromId() {
         return fromId;
     }
 
+    /**
+     * 获取发起戳一戳的人
+     *
+     * @return 发起戳一戳的人
+     */
     public Member getFrom() {
         return from;
     }
 
+    /**
+     * 获取群
+     *
+     * @return 群
+     */
     public Group getGroup() {
         return group;
     }
 
+    /**
+     * 获取群号
+     *
+     * @return 群号
+     */
     public long getGroupId() {
         return groupId;
     }

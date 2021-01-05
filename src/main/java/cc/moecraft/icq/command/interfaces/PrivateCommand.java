@@ -35,6 +35,7 @@ public interface PrivateCommand extends IcqCommand {
      * @param command 指令名 ( 不包含指令参数 )
      * @param args    指令参数 ( 不包含指令名 )
      * @return 发送回去的消息模板 ( 当然也可以手动发送然后返回空 )
+     * @since 0.2
      */
     default String tempMessage(
         EventTempMessage event,

@@ -5,6 +5,9 @@ import net.mamoe.mirai.contact.User;
 
 import java.util.ArrayList;
 
+/**
+ * 在私聊和群聊都监听的指令
+ */
 public interface EverywhereCommand extends IcqCommand {
     /**
      * 执行指令
