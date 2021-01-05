@@ -114,6 +114,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public abstract class <span class="typeNameLabel">Event</span>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="java.lang中的类或接口">Object</a></pre>
+<div class="block">表示一个事件</div>
 </li>
 </ul>
 </div>
@@ -134,7 +135,9 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected <a href="../../../../cc/moecraft/icq/PicqBotX.html" title="cc.moecraft.icq中的类">PicqBotX</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/event/Event.html#bot">bot</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/event/Event.html#bot">bot</a></span></code>
+<div class="block">机器人对象</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected net.mamoe.mirai.event.events.BotEvent</code></td>
@@ -184,11 +187,15 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code><a href="../../../../cc/moecraft/icq/PicqBotX.html" title="cc.moecraft.icq中的类">PicqBotX</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/event/Event.html#getBot--">getBot</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/event/Event.html#getBot--">getBot</a></span>()</code>
+<div class="block">获取机器人对象</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>net.mamoe.mirai.event.events.BotEvent</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/event/Event.html#getMiraiEvent--">getMiraiEvent</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/event/Event.html#getMiraiEvent--">getMiraiEvent</a></span>()</code>
+<div class="block">获取原始事件</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>int</code></td>
@@ -225,7 +232,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>miraiEvent</h4>
 <pre>protected final&nbsp;net.mamoe.mirai.event.events.BotEvent miraiEvent</pre>
-<div class="block">原始事件。对于 Local 事件，这个字段是 <code>null</code></div>
+<div class="block">原始事件。对于 <a href="../../../../cc/moecraft/icq/event/events/local/EventLocalSendMessage.html" title="cc.moecraft.icq.event.events.local中的类"><code>EventLocalSendMessage</code></a> 事件，这个字段是 <code>null</code></div>
 </li>
 </ul>
 <a name="bot">
@@ -235,6 +242,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>bot</h4>
 <pre>protected final&nbsp;<a href="../../../../cc/moecraft/icq/PicqBotX.html" title="cc.moecraft.icq中的类">PicqBotX</a> bot</pre>
+<div class="block">机器人对象</div>
 </li>
 </ul>
 <a name="time">
@@ -246,9 +254,16 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Deprecated.html?is-external=true" title="java.lang中的类或接口">@Deprecated</a>
 protected final&nbsp;int time</pre>
 <div class="block"><span class="deprecatedLabel">已过时。</span>&nbsp;</div>
-<div class="block">因为 Mirai 只会记录消息事件的时间，所以需要使用 <a href="../../../../cc/moecraft/icq/event/events/message/EventMessage.html#getEventTime--"><code>EventMessage.getEventTime()</code></a>
+<div class="block">事件发生的时间
+ <p>
+ 因为 Mirai 只会记录消息事件的时间，所以需要使用 <a href="../../../../cc/moecraft/icq/event/events/message/EventMessage.html#getEventTime--"><code>EventMessage.getEventTime()</code></a>
  以及其它事件中的 <code>getEventTime</code> 方法。
  这个字段对于其它事件都会是 0</div>
+<dl>
+<dt><span class="seeLabel">另请参阅:</span></dt>
+<dd><a href="../../../../cc/moecraft/icq/event/events/message/EventMessage.html#getEventTime--"><code>EventMessage.getEventTime()</code></a>, 
+<a href="../../../../cc/moecraft/icq/event/events/notice/EventNoticeRecall.html#getEventTime--"><code>EventNoticeRecall.getEventTime()</code></a></dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -285,6 +300,11 @@ protected final&nbsp;int time</pre>
 <li class="blockList">
 <h4>getMiraiEvent</h4>
 <pre>public&nbsp;net.mamoe.mirai.event.events.BotEvent&nbsp;getMiraiEvent()</pre>
+<div class="block">获取原始事件</div>
+<dl>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>原始事件。对于 <a href="../../../../cc/moecraft/icq/event/events/local/EventLocalSendMessage.html" title="cc.moecraft.icq.event.events.local中的类"><code>EventLocalSendMessage</code></a> 事件，这个字段是 <code>null</code></dd>
+</dl>
 </li>
 </ul>
 <a name="getBot--">
@@ -294,6 +314,11 @@ protected final&nbsp;int time</pre>
 <li class="blockList">
 <h4>getBot</h4>
 <pre>public&nbsp;<a href="../../../../cc/moecraft/icq/PicqBotX.html" title="cc.moecraft.icq中的类">PicqBotX</a>&nbsp;getBot()</pre>
+<div class="block">获取机器人对象</div>
+<dl>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>机器人对象</dd>
+</dl>
 </li>
 </ul>
 <a name="getTime--">
@@ -305,6 +330,18 @@ protected final&nbsp;int time</pre>
 <pre><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Deprecated.html?is-external=true" title="java.lang中的类或接口">@Deprecated</a>
 public&nbsp;int&nbsp;getTime()</pre>
 <div class="block"><span class="deprecatedLabel">已过时。</span>&nbsp;</div>
+<div class="block">获取事件发生的时间
+ <p>
+ 因为 Mirai 只会记录消息事件的时间，所以需要使用 <a href="../../../../cc/moecraft/icq/event/events/message/EventMessage.html#getEventTime--"><code>EventMessage.getEventTime()</code></a>
+ 以及其它事件中的 <code>getEventTime</code> 方法。
+ 这个字段对于其它事件都会是 0</div>
+<dl>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>事件发生的时间</dd>
+<dt><span class="seeLabel">另请参阅:</span></dt>
+<dd><a href="../../../../cc/moecraft/icq/event/events/message/EventMessage.html#getEventTime--"><code>EventMessage.getEventTime()</code></a>, 
+<a href="../../../../cc/moecraft/icq/event/events/notice/EventNoticeRecall.html#getEventTime--"><code>EventNoticeRecall.getEventTime()</code></a></dd>
+</dl>
 </li>
 </ul>
 </li>

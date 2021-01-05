@@ -120,6 +120,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public final class <span class="typeNameLabel">EventNoticeGroupAdminChange</span>
 extends <a href="../../../../../../../cc/moecraft/icq/event/events/notice/EventNotice.html" title="cc.moecraft.icq.event.events.notice中的类">EventNotice</a></pre>
+<div class="block">群组管理员变动事件</div>
 </li>
 </ul>
 </div>
@@ -184,23 +185,33 @@ extends <a href="../../../../../../../cc/moecraft/icq/event/events/notice/EventN
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>net.mamoe.mirai.contact.Member</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../cc/moecraft/icq/event/events/notice/groupadmin/EventNoticeGroupAdminChange.html#getMember--">getMember</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../cc/moecraft/icq/event/events/notice/groupadmin/EventNoticeGroupAdminChange.html#getMember--">getMember</a></span>()</code>
+<div class="block">获取发生变动的成员</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>net.mamoe.mirai.contact.MemberPermission</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../cc/moecraft/icq/event/events/notice/groupadmin/EventNoticeGroupAdminChange.html#getNewPermission--">getNewPermission</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../cc/moecraft/icq/event/events/notice/groupadmin/EventNoticeGroupAdminChange.html#getNewPermission--">getNewPermission</a></span>()</code>
+<div class="block">获取现在的权限</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>net.mamoe.mirai.contact.MemberPermission</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../cc/moecraft/icq/event/events/notice/groupadmin/EventNoticeGroupAdminChange.html#getOldPermission--">getOldPermission</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../cc/moecraft/icq/event/events/notice/groupadmin/EventNoticeGroupAdminChange.html#getOldPermission--">getOldPermission</a></span>()</code>
+<div class="block">获取原先的权限</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../cc/moecraft/icq/event/events/notice/groupadmin/EventNoticeGroupAdminChange.html#isRemoveAdmin--">isRemoveAdmin</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../cc/moecraft/icq/event/events/notice/groupadmin/EventNoticeGroupAdminChange.html#isRemoveAdmin--">isRemoveAdmin</a></span>()</code>
+<div class="block">返回是否是移除管理</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../cc/moecraft/icq/event/events/notice/groupadmin/EventNoticeGroupAdminChange.html#isSetAdmin--">isSetAdmin</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../cc/moecraft/icq/event/events/notice/groupadmin/EventNoticeGroupAdminChange.html#isSetAdmin--">isSetAdmin</a></span>()</code>
+<div class="block">返回是否是设置新管理</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -273,6 +284,11 @@ extends <a href="../../../../../../../cc/moecraft/icq/event/events/notice/EventN
 <li class="blockList">
 <h4>getMember</h4>
 <pre>public&nbsp;net.mamoe.mirai.contact.Member&nbsp;getMember()</pre>
+<div class="block">获取发生变动的成员</div>
+<dl>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>发生变动的成员</dd>
+</dl>
 </li>
 </ul>
 <a name="getOldPermission--">
@@ -282,6 +298,11 @@ extends <a href="../../../../../../../cc/moecraft/icq/event/events/notice/EventN
 <li class="blockList">
 <h4>getOldPermission</h4>
 <pre>public&nbsp;net.mamoe.mirai.contact.MemberPermission&nbsp;getOldPermission()</pre>
+<div class="block">获取原先的权限</div>
+<dl>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>原先的权限</dd>
+</dl>
 </li>
 </ul>
 <a name="getNewPermission--">
@@ -291,6 +312,11 @@ extends <a href="../../../../../../../cc/moecraft/icq/event/events/notice/EventN
 <li class="blockList">
 <h4>getNewPermission</h4>
 <pre>public&nbsp;net.mamoe.mirai.contact.MemberPermission&nbsp;getNewPermission()</pre>
+<div class="block">获取现在的权限</div>
+<dl>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>现在的权限</dd>
+</dl>
 </li>
 </ul>
 <a name="isSetAdmin--">
@@ -300,6 +326,11 @@ extends <a href="../../../../../../../cc/moecraft/icq/event/events/notice/EventN
 <li class="blockList">
 <h4>isSetAdmin</h4>
 <pre>public&nbsp;boolean&nbsp;isSetAdmin()</pre>
+<div class="block">返回是否是设置新管理</div>
+<dl>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>是否是设置新管理</dd>
+</dl>
 </li>
 </ul>
 <a name="isRemoveAdmin--">
@@ -309,6 +340,11 @@ extends <a href="../../../../../../../cc/moecraft/icq/event/events/notice/EventN
 <li class="blockList">
 <h4>isRemoveAdmin</h4>
 <pre>public&nbsp;boolean&nbsp;isRemoveAdmin()</pre>
+<div class="block">返回是否是移除管理</div>
+<dl>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>是否是移除管理</dd>
+</dl>
 </li>
 </ul>
 </li>

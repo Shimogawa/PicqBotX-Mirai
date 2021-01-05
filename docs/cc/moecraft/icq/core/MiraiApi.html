@@ -110,6 +110,10 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public class <span class="typeNameLabel">MiraiApi</span>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="java.lang中的类或接口">Object</a></pre>
+<div class="block">Mirai API，负责收发消息等。
+ <p>
+ Mirai 的 <code>Contact</code> 类提供了发送消息的接口，但是建议尽量使用这里的接口，
+ 因为可以触发事件，并且支持消息模板。</div>
 </li>
 </ul>
 </div>
@@ -148,108 +152,144 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/core/MiraiApi.html#sendGroupMessage-net.mamoe.mirai.contact.Group-net.mamoe.mirai.message.data.MessageChain-">sendGroupMessage</a></span>(net.mamoe.mirai.contact.Group&nbsp;group,
-                net.mamoe.mirai.message.data.MessageChain&nbsp;message)</code>&nbsp;</td>
+                net.mamoe.mirai.message.data.MessageChain&nbsp;message)</code>
+<div class="block">发送群组消息</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/core/MiraiApi.html#sendGroupMessage-net.mamoe.mirai.contact.Group-java.lang.String-">sendGroupMessage</a></span>(net.mamoe.mirai.contact.Group&nbsp;group,
-                <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message)</code>&nbsp;</td>
+                <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message)</code>
+<div class="block">发送群组消息</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/core/MiraiApi.html#sendGroupMessage-net.mamoe.mirai.contact.Group-java.lang.String-boolean-">sendGroupMessage</a></span>(net.mamoe.mirai.contact.Group&nbsp;group,
                 <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message,
-                boolean&nbsp;isTemplate)</code>&nbsp;</td>
+                boolean&nbsp;isTemplate)</code>
+<div class="block">发送群组消息</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/core/MiraiApi.html#sendGroupMessage-long-net.mamoe.mirai.message.data.MessageChain-">sendGroupMessage</a></span>(long&nbsp;id,
-                net.mamoe.mirai.message.data.MessageChain&nbsp;message)</code>&nbsp;</td>
+                net.mamoe.mirai.message.data.MessageChain&nbsp;message)</code>
+<div class="block">发送群组消息</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/core/MiraiApi.html#sendGroupMessage-long-java.lang.String-">sendGroupMessage</a></span>(long&nbsp;id,
-                <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message)</code>&nbsp;</td>
+                <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message)</code>
+<div class="block">发送群组消息</div>
+</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/core/MiraiApi.html#sendGroupMessage-long-java.lang.String-boolean-">sendGroupMessage</a></span>(long&nbsp;id,
                 <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message,
-                boolean&nbsp;isTemplate)</code>&nbsp;</td>
+                boolean&nbsp;isTemplate)</code>
+<div class="block">发送群组消息</div>
+</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/core/MiraiApi.html#sendMessage-net.mamoe.mirai.contact.Contact-net.mamoe.mirai.message.data.MessageChain-">sendMessage</a></span>(net.mamoe.mirai.contact.Contact&nbsp;contact,
            net.mamoe.mirai.message.data.MessageChain&nbsp;message)</code>
-<div class="block">发送消息</div>
+<div class="block">发送消息给任意对象（好友、群员、群）</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/core/MiraiApi.html#sendPrivateMessage-net.mamoe.mirai.contact.Friend-net.mamoe.mirai.message.data.MessageChain-">sendPrivateMessage</a></span>(net.mamoe.mirai.contact.Friend&nbsp;friend,
-                  net.mamoe.mirai.message.data.MessageChain&nbsp;message)</code>&nbsp;</td>
+                  net.mamoe.mirai.message.data.MessageChain&nbsp;message)</code>
+<div class="block">发送私聊消息</div>
+</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/core/MiraiApi.html#sendPrivateMessage-net.mamoe.mirai.contact.Friend-java.lang.String-">sendPrivateMessage</a></span>(net.mamoe.mirai.contact.Friend&nbsp;friend,
-                  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message)</code>&nbsp;</td>
+                  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message)</code>
+<div class="block">发送私聊消息</div>
+</td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/core/MiraiApi.html#sendPrivateMessage-net.mamoe.mirai.contact.Friend-java.lang.String-boolean-">sendPrivateMessage</a></span>(net.mamoe.mirai.contact.Friend&nbsp;friend,
                   <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message,
-                  boolean&nbsp;isTemplate)</code>&nbsp;</td>
+                  boolean&nbsp;isTemplate)</code>
+<div class="block">发送私聊消息</div>
+</td>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/core/MiraiApi.html#sendPrivateMessage-long-net.mamoe.mirai.message.data.MessageChain-">sendPrivateMessage</a></span>(long&nbsp;id,
-                  net.mamoe.mirai.message.data.MessageChain&nbsp;message)</code>&nbsp;</td>
+                  net.mamoe.mirai.message.data.MessageChain&nbsp;message)</code>
+<div class="block">发送私聊消息</div>
+</td>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/core/MiraiApi.html#sendPrivateMessage-long-java.lang.String-">sendPrivateMessage</a></span>(long&nbsp;id,
-                  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message)</code>&nbsp;</td>
+                  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message)</code>
+<div class="block">发送私聊消息</div>
+</td>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code>net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/core/MiraiApi.html#sendPrivateMessage-long-java.lang.String-boolean-">sendPrivateMessage</a></span>(long&nbsp;id,
                   <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message,
-                  boolean&nbsp;isTemplate)</code>&nbsp;</td>
+                  boolean&nbsp;isTemplate)</code>
+<div class="block">发送私聊消息</div>
+</td>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code>net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/core/MiraiApi.html#sendTempMessage-long-long-net.mamoe.mirai.message.data.MessageChain-">sendTempMessage</a></span>(long&nbsp;groupId,
                long&nbsp;memberId,
-               net.mamoe.mirai.message.data.MessageChain&nbsp;message)</code>&nbsp;</td>
+               net.mamoe.mirai.message.data.MessageChain&nbsp;message)</code>
+<div class="block">发送临时消息给群员</div>
+</td>
 </tr>
 <tr id="i14" class="altColor">
 <td class="colFirst"><code>net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/core/MiraiApi.html#sendTempMessage-long-long-java.lang.String-">sendTempMessage</a></span>(long&nbsp;groupId,
                long&nbsp;memberId,
-               <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message)</code>&nbsp;</td>
+               <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message)</code>
+<div class="block">发送临时消息给群员</div>
+</td>
 </tr>
 <tr id="i15" class="rowColor">
 <td class="colFirst"><code>net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/core/MiraiApi.html#sendTempMessage-long-long-java.lang.String-boolean-">sendTempMessage</a></span>(long&nbsp;groupId,
                long&nbsp;memberId,
                <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message,
-               boolean&nbsp;isTemplate)</code>&nbsp;</td>
+               boolean&nbsp;isTemplate)</code>
+<div class="block">发送临时消息给群员</div>
+</td>
 </tr>
 <tr id="i16" class="altColor">
 <td class="colFirst"><code>net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/core/MiraiApi.html#sendTempMessage-net.mamoe.mirai.contact.Member-net.mamoe.mirai.message.data.MessageChain-">sendTempMessage</a></span>(net.mamoe.mirai.contact.Member&nbsp;member,
-               net.mamoe.mirai.message.data.MessageChain&nbsp;message)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/core/MiraiApi.html#sendTempMessage-net.mamoe.mirai.contact.NormalMember-net.mamoe.mirai.message.data.MessageChain-">sendTempMessage</a></span>(net.mamoe.mirai.contact.NormalMember&nbsp;member,
+               net.mamoe.mirai.message.data.MessageChain&nbsp;message)</code>
+<div class="block">发送临时消息给群员</div>
+</td>
 </tr>
 <tr id="i17" class="rowColor">
 <td class="colFirst"><code>net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/core/MiraiApi.html#sendTempMessage-net.mamoe.mirai.contact.Member-java.lang.String-">sendTempMessage</a></span>(net.mamoe.mirai.contact.Member&nbsp;member,
-               <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/core/MiraiApi.html#sendTempMessage-net.mamoe.mirai.contact.NormalMember-java.lang.String-">sendTempMessage</a></span>(net.mamoe.mirai.contact.NormalMember&nbsp;member,
+               <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message)</code>
+<div class="block">发送临时消息给群员</div>
+</td>
 </tr>
 <tr id="i18" class="altColor">
 <td class="colFirst"><code>net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/core/MiraiApi.html#sendTempMessage-net.mamoe.mirai.contact.Member-java.lang.String-boolean-">sendTempMessage</a></span>(net.mamoe.mirai.contact.Member&nbsp;member,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../cc/moecraft/icq/core/MiraiApi.html#sendTempMessage-net.mamoe.mirai.contact.NormalMember-java.lang.String-boolean-">sendTempMessage</a></span>(net.mamoe.mirai.contact.NormalMember&nbsp;member,
                <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message,
-               boolean&nbsp;isTemplate)</code>&nbsp;</td>
+               boolean&nbsp;isTemplate)</code>
+<div class="block">发送临时消息给群员</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -300,6 +340,14 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 public&nbsp;net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;&nbsp;sendPrivateMessage(long&nbsp;id,
                                                                                                              @Nullable
                                                                                                              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message)</pre>
+<div class="block">发送私聊消息</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>id</code> - QQ 号</dd>
+<dd><code>message</code> - 消息</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>消息回执。如果是 <code>null</code> 则表示消息被拦截或传入的消息为空。</dd>
+</dl>
 </li>
 </ul>
 <a name="sendPrivateMessage-long-java.lang.String-boolean-">
@@ -313,6 +361,15 @@ public&nbsp;net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Co
                                                                                                              @Nullable
                                                                                                              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message,
                                                                                                              boolean&nbsp;isTemplate)</pre>
+<div class="block">发送私聊消息</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>id</code> - QQ 号</dd>
+<dd><code>message</code> - 消息</dd>
+<dd><code>isTemplate</code> - 是否消息模板</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>消息回执。如果是 <code>null</code> 则表示消息被拦截或传入的消息为空。</dd>
+</dl>
 </li>
 </ul>
 <a name="sendPrivateMessage-long-net.mamoe.mirai.message.data.MessageChain-">
@@ -325,6 +382,14 @@ public&nbsp;net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Co
 public&nbsp;net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;&nbsp;sendPrivateMessage(long&nbsp;id,
                                                                                                              @Nullable
                                                                                                              net.mamoe.mirai.message.data.MessageChain&nbsp;message)</pre>
+<div class="block">发送私聊消息</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>id</code> - QQ 号</dd>
+<dd><code>message</code> - 消息</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>消息回执。如果是 <code>null</code> 则表示消息被拦截或传入的消息为空。</dd>
+</dl>
 </li>
 </ul>
 <a name="sendPrivateMessage-net.mamoe.mirai.contact.Friend-java.lang.String-">
@@ -338,6 +403,14 @@ public&nbsp;net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Co
                                                                                                              net.mamoe.mirai.contact.Friend&nbsp;friend,
                                                                                                              @Nullable
                                                                                                              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message)</pre>
+<div class="block">发送私聊消息</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>friend</code> - 好友对象</dd>
+<dd><code>message</code> - 消息</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>消息回执。如果是 <code>null</code> 则表示消息被拦截或传入的消息为空。</dd>
+</dl>
 </li>
 </ul>
 <a name="sendPrivateMessage-net.mamoe.mirai.contact.Friend-java.lang.String-boolean-">
@@ -352,6 +425,15 @@ public&nbsp;net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Co
                                                                                                              @Nullable
                                                                                                              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message,
                                                                                                              boolean&nbsp;isTemplate)</pre>
+<div class="block">发送私聊消息</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>friend</code> - 好友对象</dd>
+<dd><code>message</code> - 消息</dd>
+<dd><code>isTemplate</code> - 是否是消息模板</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>消息回执。如果是 <code>null</code> 则表示消息被拦截或传入的消息为空。</dd>
+</dl>
 </li>
 </ul>
 <a name="sendPrivateMessage-net.mamoe.mirai.contact.Friend-net.mamoe.mirai.message.data.MessageChain-">
@@ -365,6 +447,14 @@ public&nbsp;net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Co
                                                                                                              net.mamoe.mirai.contact.Friend&nbsp;friend,
                                                                                                              @Nullable
                                                                                                              net.mamoe.mirai.message.data.MessageChain&nbsp;message)</pre>
+<div class="block">发送私聊消息</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>friend</code> - 好友对象</dd>
+<dd><code>message</code> - 消息</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>消息回执。如果是 <code>null</code> 则表示消息被拦截或传入的消息为空。</dd>
+</dl>
 </li>
 </ul>
 <a name="sendTempMessage-long-long-java.lang.String-">
@@ -378,6 +468,15 @@ public&nbsp;net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Co
                                                                                                           long&nbsp;memberId,
                                                                                                           @Nullable
                                                                                                           <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message)</pre>
+<div class="block">发送临时消息给群员</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>groupId</code> - 群号</dd>
+<dd><code>memberId</code> - 群员 QQ 号</dd>
+<dd><code>message</code> - 消息</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>消息回执。如果是 <code>null</code> 则表示消息被拦截或传入的消息为空。</dd>
+</dl>
 </li>
 </ul>
 <a name="sendTempMessage-long-long-java.lang.String-boolean-">
@@ -392,6 +491,16 @@ public&nbsp;net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Co
                                                                                                           @Nullable
                                                                                                           <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message,
                                                                                                           boolean&nbsp;isTemplate)</pre>
+<div class="block">发送临时消息给群员</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>groupId</code> - 群号</dd>
+<dd><code>memberId</code> - 群员 QQ 号</dd>
+<dd><code>message</code> - 消息</dd>
+<dd><code>isTemplate</code> - 是否是消息模板</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>消息回执。如果是 <code>null</code> 则表示消息被拦截或传入的消息为空。</dd>
+</dl>
 </li>
 </ul>
 <a name="sendTempMessage-long-long-net.mamoe.mirai.message.data.MessageChain-">
@@ -405,9 +514,18 @@ public&nbsp;net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Co
                                                                                                           long&nbsp;memberId,
                                                                                                           @Nullable
                                                                                                           net.mamoe.mirai.message.data.MessageChain&nbsp;message)</pre>
+<div class="block">发送临时消息给群员</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>groupId</code> - 群号</dd>
+<dd><code>memberId</code> - 群员 QQ 号</dd>
+<dd><code>message</code> - 消息</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>消息回执。如果是 <code>null</code> 则表示消息被拦截或传入的消息为空。</dd>
+</dl>
 </li>
 </ul>
-<a name="sendTempMessage-net.mamoe.mirai.contact.Member-java.lang.String-">
+<a name="sendTempMessage-net.mamoe.mirai.contact.NormalMember-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -415,12 +533,20 @@ public&nbsp;net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Co
 <h4>sendTempMessage</h4>
 <pre>@Nullable
 public&nbsp;net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;&nbsp;sendTempMessage(@NotNull
-                                                                                                          net.mamoe.mirai.contact.Member&nbsp;member,
+                                                                                                          net.mamoe.mirai.contact.NormalMember&nbsp;member,
                                                                                                           @Nullable
                                                                                                           <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message)</pre>
+<div class="block">发送临时消息给群员</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>member</code> - 群员对象</dd>
+<dd><code>message</code> - 消息</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>消息回执。如果是 <code>null</code> 则表示消息被拦截或传入的消息为空。</dd>
+</dl>
 </li>
 </ul>
-<a name="sendTempMessage-net.mamoe.mirai.contact.Member-java.lang.String-boolean-">
+<a name="sendTempMessage-net.mamoe.mirai.contact.NormalMember-java.lang.String-boolean-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -428,13 +554,22 @@ public&nbsp;net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Co
 <h4>sendTempMessage</h4>
 <pre>@Nullable
 public&nbsp;net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;&nbsp;sendTempMessage(@NotNull
-                                                                                                          net.mamoe.mirai.contact.Member&nbsp;member,
+                                                                                                          net.mamoe.mirai.contact.NormalMember&nbsp;member,
                                                                                                           @Nullable
                                                                                                           <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message,
                                                                                                           boolean&nbsp;isTemplate)</pre>
+<div class="block">发送临时消息给群员</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>member</code> - 群员对象</dd>
+<dd><code>message</code> - 消息</dd>
+<dd><code>isTemplate</code> - 是否消息模板</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>消息回执。如果是 <code>null</code> 则表示消息被拦截或传入的消息为空。</dd>
+</dl>
 </li>
 </ul>
-<a name="sendTempMessage-net.mamoe.mirai.contact.Member-net.mamoe.mirai.message.data.MessageChain-">
+<a name="sendTempMessage-net.mamoe.mirai.contact.NormalMember-net.mamoe.mirai.message.data.MessageChain-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -442,9 +577,17 @@ public&nbsp;net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Co
 <h4>sendTempMessage</h4>
 <pre>@Nullable
 public&nbsp;net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;&nbsp;sendTempMessage(@NotNull
-                                                                                                          net.mamoe.mirai.contact.Member&nbsp;member,
+                                                                                                          net.mamoe.mirai.contact.NormalMember&nbsp;member,
                                                                                                           @Nullable
                                                                                                           net.mamoe.mirai.message.data.MessageChain&nbsp;message)</pre>
+<div class="block">发送临时消息给群员</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>member</code> - 群员对象</dd>
+<dd><code>message</code> - 消息</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>消息回执。如果是 <code>null</code> 则表示消息被拦截或传入的消息为空。</dd>
+</dl>
 </li>
 </ul>
 <a name="sendGroupMessage-long-java.lang.String-">
@@ -457,6 +600,14 @@ public&nbsp;net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Co
 public&nbsp;net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;&nbsp;sendGroupMessage(long&nbsp;id,
                                                                                                            @Nullable
                                                                                                            <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message)</pre>
+<div class="block">发送群组消息</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>id</code> - 群号</dd>
+<dd><code>message</code> - 消息</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>消息回执。如果是 <code>null</code> 则表示消息被拦截或传入的消息为空。</dd>
+</dl>
 </li>
 </ul>
 <a name="sendGroupMessage-long-java.lang.String-boolean-">
@@ -470,6 +621,15 @@ public&nbsp;net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Co
                                                                                                            @Nullable
                                                                                                            <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message,
                                                                                                            boolean&nbsp;isTemplate)</pre>
+<div class="block">发送群组消息</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>id</code> - 群号</dd>
+<dd><code>message</code> - 消息</dd>
+<dd><code>isTemplate</code> - 是否是消息模板</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>消息回执。如果是 <code>null</code> 则表示消息被拦截或传入的消息为空。</dd>
+</dl>
 </li>
 </ul>
 <a name="sendGroupMessage-long-net.mamoe.mirai.message.data.MessageChain-">
@@ -482,6 +642,14 @@ public&nbsp;net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Co
 public&nbsp;net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;&nbsp;sendGroupMessage(long&nbsp;id,
                                                                                                            @Nullable
                                                                                                            net.mamoe.mirai.message.data.MessageChain&nbsp;message)</pre>
+<div class="block">发送群组消息</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>id</code> - 群号</dd>
+<dd><code>message</code> - 消息</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>消息回执。如果是 <code>null</code> 则表示消息被拦截或传入的消息为空。</dd>
+</dl>
 </li>
 </ul>
 <a name="sendGroupMessage-net.mamoe.mirai.contact.Group-java.lang.String-">
@@ -495,6 +663,14 @@ public&nbsp;net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Co
                                                                                                            net.mamoe.mirai.contact.Group&nbsp;group,
                                                                                                            @Nullable
                                                                                                            <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message)</pre>
+<div class="block">发送群组消息</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>group</code> - 群对象</dd>
+<dd><code>message</code> - 消息</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>消息回执。如果是 <code>null</code> 则表示消息被拦截或传入的消息为空。</dd>
+</dl>
 </li>
 </ul>
 <a name="sendGroupMessage-net.mamoe.mirai.contact.Group-java.lang.String-boolean-">
@@ -509,6 +685,15 @@ public&nbsp;net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Co
                                                                                                            @Nullable
                                                                                                            <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;message,
                                                                                                            boolean&nbsp;isTemplate)</pre>
+<div class="block">发送群组消息</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>group</code> - 群对象</dd>
+<dd><code>message</code> - 消息</dd>
+<dd><code>isTemplate</code> - 是否消息模板</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>消息回执。如果是 <code>null</code> 则表示消息被拦截或传入的消息为空。</dd>
+</dl>
 </li>
 </ul>
 <a name="sendGroupMessage-net.mamoe.mirai.contact.Group-net.mamoe.mirai.message.data.MessageChain-">
@@ -522,6 +707,14 @@ public&nbsp;net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Co
                                                                                                            net.mamoe.mirai.contact.Group&nbsp;group,
                                                                                                            @Nullable
                                                                                                            net.mamoe.mirai.message.data.MessageChain&nbsp;message)</pre>
+<div class="block">发送群组消息</div>
+<dl>
+<dt><span class="paramLabel">参数:</span></dt>
+<dd><code>group</code> - 群对象</dd>
+<dd><code>message</code> - 消息</dd>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>消息回执。如果是 <code>null</code> 则表示消息被拦截或传入的消息为空。</dd>
+</dl>
 </li>
 </ul>
 <a name="sendMessage-net.mamoe.mirai.contact.Contact-net.mamoe.mirai.message.data.MessageChain-">
@@ -535,7 +728,7 @@ public&nbsp;net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Co
                                                                                                       net.mamoe.mirai.contact.Contact&nbsp;contact,
                                                                                                       @Nullable
                                                                                                       net.mamoe.mirai.message.data.MessageChain&nbsp;message)</pre>
-<div class="block">发送消息</div>
+<div class="block">发送消息给任意对象（好友、群员、群）</div>
 <dl>
 <dt><span class="paramLabel">参数:</span></dt>
 <dd><code>contact</code> - 一个用户对象或群对象</dd>

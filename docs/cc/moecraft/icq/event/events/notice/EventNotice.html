@@ -119,6 +119,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public abstract class <span class="typeNameLabel">EventNotice</span>
 extends <a href="../../../../../../cc/moecraft/icq/event/Event.html" title="cc.moecraft.icq.event中的类">Event</a></pre>
+<div class="block">通知事件</div>
 </li>
 </ul>
 </div>
@@ -141,9 +142,7 @@ extends <a href="../../../../../../cc/moecraft/icq/event/Event.html" title="cc.m
 <td class="colFirst"><code>protected net.mamoe.mirai.contact.User</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cc/moecraft/icq/event/events/notice/EventNotice.html#user">user</a></span></code>
 <div class="block">事件发起人
- 
- 注：
- 在撤回事件中，指撤回消息的人，而不是消息发送者。</div>
+ 注意！</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -196,7 +195,10 @@ extends <a href="../../../../../../cc/moecraft/icq/event/Event.html" title="cc.m
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>net.mamoe.mirai.contact.User</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cc/moecraft/icq/event/events/notice/EventNotice.html#getUser--">getUser</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cc/moecraft/icq/event/events/notice/EventNotice.html#getUser--">getUser</a></span>()</code>
+<div class="block">获取事件发起人
+ 注意！</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>long</code></td>
@@ -239,8 +241,7 @@ extends <a href="../../../../../../cc/moecraft/icq/event/Event.html" title="cc.m
 <h4>user</h4>
 <pre>protected final&nbsp;net.mamoe.mirai.contact.User user</pre>
 <div class="block">事件发起人
- <p>
- 注：
+ <h2>注意！</h2>
  在撤回事件中，指撤回消息的人，而不是消息发送者。
  请使用 <a href="../../../../../../cc/moecraft/icq/event/events/notice/EventNoticeRecall.html#getOperator--"><code>EventNoticeRecall.getOperator()</code></a> 或 <a href="../../../../../../cc/moecraft/icq/event/events/notice/EventNoticeRecall.html#getAuthor--"><code>EventNoticeRecall.getAuthor()</code></a>
  <p>
@@ -296,6 +297,26 @@ extends <a href="../../../../../../cc/moecraft/icq/event/Event.html" title="cc.m
 <li class="blockList">
 <h4>getUser</h4>
 <pre>public&nbsp;net.mamoe.mirai.contact.User&nbsp;getUser()</pre>
+<div class="block">获取事件发起人
+ <h2>注意！</h2>
+ 在撤回事件中，指撤回消息的人，而不是消息发送者。
+ 请使用 <a href="../../../../../../cc/moecraft/icq/event/events/notice/EventNoticeRecall.html#getOperator--"><code>EventNoticeRecall.getOperator()</code></a> 或 <a href="../../../../../../cc/moecraft/icq/event/events/notice/EventNoticeRecall.html#getAuthor--"><code>EventNoticeRecall.getAuthor()</code></a>
+ <p>
+ 在禁言事件中，指发起禁言的管理员，而不是被禁言的人。
+ 请使用 <a href="../../../../../../cc/moecraft/icq/event/events/notice/EventNoticeGroupBan.html#getOperator--"><code>EventNoticeGroupBan.getOperator()</code></a> 或 <a href="../../../../../../cc/moecraft/icq/event/events/notice/EventNoticeGroupBan.html#getBannedMember--"><code>EventNoticeGroupBan.getBannedMember()</code></a>。
+ <p>
+ 在管理员变动事件中，指发生变动的成员。
+ 请使用 <a href="../../../../../../cc/moecraft/icq/event/events/notice/groupadmin/EventNoticeGroupAdminChange.html#getMember--"><code>EventNoticeGroupAdminChange.getMember()</code></a>。</div>
+<dl>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>事件发起人</dd>
+<dt><span class="seeLabel">另请参阅:</span></dt>
+<dd><a href="../../../../../../cc/moecraft/icq/event/events/notice/EventNoticeRecall.html#getOperator--"><code>EventNoticeRecall.getOperator()</code></a>, 
+<a href="../../../../../../cc/moecraft/icq/event/events/notice/EventNoticeRecall.html#getAuthor--"><code>EventNoticeRecall.getAuthor()</code></a>, 
+<a href="../../../../../../cc/moecraft/icq/event/events/notice/EventNoticeGroupBan.html#getOperator--"><code>EventNoticeGroupBan.getOperator()</code></a>, 
+<a href="../../../../../../cc/moecraft/icq/event/events/notice/EventNoticeGroupBan.html#getBannedMember--"><code>EventNoticeGroupBan.getBannedMember()</code></a>, 
+<a href="../../../../../../cc/moecraft/icq/event/events/notice/groupadmin/EventNoticeGroupAdminChange.html#getMember--"><code>EventNoticeGroupAdminChange.getMember()</code></a></dd>
+</dl>
 </li>
 </ul>
 <a name="getUserId--">

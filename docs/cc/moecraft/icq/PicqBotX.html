@@ -110,6 +110,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public class <span class="typeNameLabel">PicqBotX</span>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="java.lang中的类或接口">Object</a></pre>
+<div class="block">PicqBotX 机器人</div>
 </li>
 </ul>
 </div>
@@ -128,7 +129,9 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <th class="colOne" scope="col">构造器和说明</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../cc/moecraft/icq/PicqBotX.html#PicqBotX--">PicqBotX</a></span>()</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../cc/moecraft/icq/PicqBotX.html#PicqBotX--">PicqBotX</a></span>()</code>
+<div class="block">初始化机器人</div>
+</td>
 </tr>
 </table>
 </li>
@@ -160,24 +163,34 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../cc/moecraft/icq/command/CommandManager.html" title="cc.moecraft.icq.command中的类">CommandManager</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../cc/moecraft/icq/PicqBotX.html#getCommandManager--">getCommandManager</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cc/moecraft/icq/PicqBotX.html#getCommandManager--">getCommandManager</a></span>()</code>
+<div class="block">获取指令管理器</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../cc/moecraft/icq/event/EventManager.html" title="cc.moecraft.icq.event中的类">EventManager</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../cc/moecraft/icq/PicqBotX.html#getEventManager--">getEventManager</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cc/moecraft/icq/PicqBotX.html#getEventManager--">getEventManager</a></span>()</code>
+<div class="block">获取事件管理器</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>cc.moecraft.logger.LoggerInstanceManager</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../cc/moecraft/icq/PicqBotX.html#getLoggerManager--">getLoggerManager</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cc/moecraft/icq/PicqBotX.html#getLoggerManager--">getLoggerManager</a></span>()</code>
+<div class="block">获取日志管理器</div>
+</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../cc/moecraft/icq/core/MiraiApi.html" title="cc.moecraft.icq.core中的类">MiraiApi</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../cc/moecraft/icq/PicqBotX.html#getMiraiApi--">getMiraiApi</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../cc/moecraft/icq/PicqBotX.html#getMiraiApi--">getMiraiApi</a></span>()</code>
+<div class="block">获取 Mirai API</div>
+</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>net.mamoe.mirai.Bot</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../cc/moecraft/icq/PicqBotX.html#getMiraiBot--">getMiraiBot</a></span>()</code>
-<div class="block">如果机器人没有启动（没有使用 <a href="../../../cc/moecraft/icq/PicqBotX.html#setAccount-long-java.lang.String-"><code>setAccount(long, String)</code></a>），则会抛出
+<div class="block">获取 Mirai 机器人
+ 
+ 如果机器人没有启动（没有使用 <a href="../../../cc/moecraft/icq/PicqBotX.html#setAccount-long-java.lang.String-"><code>setAccount(long, String)</code></a>），则会抛出
  <a href="../../../cc/moecraft/icq/exceptions/BotNotStartedException.html" title="cc.moecraft.icq.exceptions中的类"><code>BotNotStartedException</code></a></div>
 </td>
 </tr>
@@ -262,6 +275,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>PicqBotX</h4>
 <pre>public&nbsp;PicqBotX()</pre>
+<div class="block">初始化机器人</div>
 </li>
 </ul>
 </li>
@@ -280,7 +294,9 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <h4>getMiraiBot</h4>
 <pre>@NotNull
 public&nbsp;net.mamoe.mirai.Bot&nbsp;getMiraiBot()</pre>
-<div class="block">如果机器人没有启动（没有使用 <a href="../../../cc/moecraft/icq/PicqBotX.html#setAccount-long-java.lang.String-"><code>setAccount(long, String)</code></a>），则会抛出
+<div class="block">获取 Mirai 机器人
+ <p>
+ 如果机器人没有启动（没有使用 <a href="../../../cc/moecraft/icq/PicqBotX.html#setAccount-long-java.lang.String-"><code>setAccount(long, String)</code></a>），则会抛出
  <a href="../../../cc/moecraft/icq/exceptions/BotNotStartedException.html" title="cc.moecraft.icq.exceptions中的类"><code>BotNotStartedException</code></a></div>
 <dl>
 <dt><span class="returnLabel">返回:</span></dt>
@@ -449,6 +465,7 @@ public&nbsp;void&nbsp;addAccount(long&nbsp;qq,
 <li class="blockList">
 <h4>getLoggerManager</h4>
 <pre>public&nbsp;cc.moecraft.logger.LoggerInstanceManager&nbsp;getLoggerManager()</pre>
+<div class="block">获取日志管理器</div>
 <dl>
 <dt><span class="returnLabel">返回:</span></dt>
 <dd>日志管理器</dd>
@@ -462,6 +479,7 @@ public&nbsp;void&nbsp;addAccount(long&nbsp;qq,
 <li class="blockList">
 <h4>getMiraiApi</h4>
 <pre>public&nbsp;<a href="../../../cc/moecraft/icq/core/MiraiApi.html" title="cc.moecraft.icq.core中的类">MiraiApi</a>&nbsp;getMiraiApi()</pre>
+<div class="block">获取 Mirai API</div>
 <dl>
 <dt><span class="returnLabel">返回:</span></dt>
 <dd>Mirai API</dd>
@@ -475,6 +493,7 @@ public&nbsp;void&nbsp;addAccount(long&nbsp;qq,
 <li class="blockList">
 <h4>getEventManager</h4>
 <pre>public&nbsp;<a href="../../../cc/moecraft/icq/event/EventManager.html" title="cc.moecraft.icq.event中的类">EventManager</a>&nbsp;getEventManager()</pre>
+<div class="block">获取事件管理器</div>
 <dl>
 <dt><span class="returnLabel">返回:</span></dt>
 <dd>事件管理器</dd>
@@ -488,6 +507,7 @@ public&nbsp;void&nbsp;addAccount(long&nbsp;qq,
 <li class="blockList">
 <h4>getCommandManager</h4>
 <pre>public&nbsp;<a href="../../../cc/moecraft/icq/command/CommandManager.html" title="cc.moecraft.icq.command中的类">CommandManager</a>&nbsp;getCommandManager()</pre>
+<div class="block">获取指令管理器</div>
 <dl>
 <dt><span class="returnLabel">返回:</span></dt>
 <dd>指令管理器</dd>

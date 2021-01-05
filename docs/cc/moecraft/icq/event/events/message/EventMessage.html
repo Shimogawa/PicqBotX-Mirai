@@ -119,6 +119,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public abstract class <span class="typeNameLabel">EventMessage</span>
 extends <a href="../../../../../../cc/moecraft/icq/event/Event.html" title="cc.moecraft.icq.event中的类">Event</a></pre>
+<div class="block">消息事件</div>
 </li>
 </ul>
 </div>
@@ -139,25 +140,33 @@ extends <a href="../../../../../../cc/moecraft/icq/event/Event.html" title="cc.m
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cc/moecraft/icq/event/events/message/EventMessage.html#eventTime">eventTime</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cc/moecraft/icq/event/events/message/EventMessage.html#eventTime">eventTime</a></span></code>
+<div class="block">事件时间</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cc/moecraft/icq/event/events/message/EventMessage.html#message">message</a></span></code>
-<div class="block">Message Template</div>
+<div class="block">消息（默认是消息模板）</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected net.mamoe.mirai.message.data.MessageChain</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cc/moecraft/icq/event/events/message/EventMessage.html#rawMessage">rawMessage</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cc/moecraft/icq/event/events/message/EventMessage.html#rawMessage">rawMessage</a></span></code>
+<div class="block">原消息（消息链）</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected net.mamoe.mirai.contact.User</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cc/moecraft/icq/event/events/message/EventMessage.html#sender">sender</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cc/moecraft/icq/event/events/message/EventMessage.html#sender">sender</a></span></code>
+<div class="block">发送者（好友或群员）</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cc/moecraft/icq/event/events/message/EventMessage.html#senderId">senderId</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cc/moecraft/icq/event/events/message/EventMessage.html#senderId">senderId</a></span></code>
+<div class="block">发送者 QQ 号</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -201,23 +210,33 @@ extends <a href="../../../../../../cc/moecraft/icq/event/Event.html" title="cc.m
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cc/moecraft/icq/event/events/message/EventMessage.html#getEventTime--">getEventTime</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cc/moecraft/icq/event/events/message/EventMessage.html#getEventTime--">getEventTime</a></span>()</code>
+<div class="block">获取事件时间</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cc/moecraft/icq/event/events/message/EventMessage.html#getMessage--">getMessage</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cc/moecraft/icq/event/events/message/EventMessage.html#getMessage--">getMessage</a></span>()</code>
+<div class="block">获取消息（默认是消息模板）</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>net.mamoe.mirai.message.data.MessageChain</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cc/moecraft/icq/event/events/message/EventMessage.html#getRawMessage--">getRawMessage</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cc/moecraft/icq/event/events/message/EventMessage.html#getRawMessage--">getRawMessage</a></span>()</code>
+<div class="block">获取原消息（消息链）</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>net.mamoe.mirai.contact.User</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cc/moecraft/icq/event/events/message/EventMessage.html#getSender--">getSender</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cc/moecraft/icq/event/events/message/EventMessage.html#getSender--">getSender</a></span>()</code>
+<div class="block">获取发送者（好友或群员）</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cc/moecraft/icq/event/events/message/EventMessage.html#getSenderId--">getSenderId</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../cc/moecraft/icq/event/events/message/EventMessage.html#getSenderId--">getSenderId</a></span>()</code>
+<div class="block">获取发送者 QQ 号</div>
+</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>net.mamoe.mirai.message.MessageReceipt&lt;net.mamoe.mirai.contact.Contact&gt;</code></td>
@@ -308,7 +327,11 @@ extends <a href="../../../../../../cc/moecraft/icq/event/Event.html" title="cc.m
 <li class="blockList">
 <h4>message</h4>
 <pre>protected final&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a> message</pre>
-<div class="block">Message Template</div>
+<div class="block">消息（默认是消息模板）</div>
+<dl>
+<dt><span class="seeLabel">另请参阅:</span></dt>
+<dd><a href="../../../../../../cc/moecraft/icq/PicqMessageTemplate.html" title="cc.moecraft.icq中的类"><code>PicqMessageTemplate</code></a></dd>
+</dl>
 </li>
 </ul>
 <a name="rawMessage">
@@ -318,6 +341,7 @@ extends <a href="../../../../../../cc/moecraft/icq/event/Event.html" title="cc.m
 <li class="blockList">
 <h4>rawMessage</h4>
 <pre>protected final&nbsp;net.mamoe.mirai.message.data.MessageChain rawMessage</pre>
+<div class="block">原消息（消息链）</div>
 </li>
 </ul>
 <a name="senderId">
@@ -327,6 +351,7 @@ extends <a href="../../../../../../cc/moecraft/icq/event/Event.html" title="cc.m
 <li class="blockList">
 <h4>senderId</h4>
 <pre>protected final&nbsp;long senderId</pre>
+<div class="block">发送者 QQ 号</div>
 </li>
 </ul>
 <a name="sender">
@@ -336,6 +361,7 @@ extends <a href="../../../../../../cc/moecraft/icq/event/Event.html" title="cc.m
 <li class="blockList">
 <h4>sender</h4>
 <pre>protected final&nbsp;net.mamoe.mirai.contact.User sender</pre>
+<div class="block">发送者（好友或群员）</div>
 </li>
 </ul>
 <a name="eventTime">
@@ -345,6 +371,11 @@ extends <a href="../../../../../../cc/moecraft/icq/event/Event.html" title="cc.m
 <li class="blockList">
 <h4>eventTime</h4>
 <pre>protected final&nbsp;int eventTime</pre>
+<div class="block">事件时间</div>
+<dl>
+<dt><span class="seeLabel">另请参阅:</span></dt>
+<dd><a href="../../../../../../cc/moecraft/icq/event/Event.html#time"><code>Event.time</code></a></dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -380,6 +411,13 @@ extends <a href="../../../../../../cc/moecraft/icq/event/Event.html" title="cc.m
 <li class="blockList">
 <h4>getMessage</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="java.lang中的类或接口">String</a>&nbsp;getMessage()</pre>
+<div class="block">获取消息（默认是消息模板）</div>
+<dl>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>消息（默认是消息模板）</dd>
+<dt><span class="seeLabel">另请参阅:</span></dt>
+<dd><a href="../../../../../../cc/moecraft/icq/PicqMessageTemplate.html" title="cc.moecraft.icq中的类"><code>PicqMessageTemplate</code></a></dd>
+</dl>
 </li>
 </ul>
 <a name="getRawMessage--">
@@ -389,6 +427,11 @@ extends <a href="../../../../../../cc/moecraft/icq/event/Event.html" title="cc.m
 <li class="blockList">
 <h4>getRawMessage</h4>
 <pre>public&nbsp;net.mamoe.mirai.message.data.MessageChain&nbsp;getRawMessage()</pre>
+<div class="block">获取原消息（消息链）</div>
+<dl>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>原消息</dd>
+</dl>
 </li>
 </ul>
 <a name="getSenderId--">
@@ -398,6 +441,11 @@ extends <a href="../../../../../../cc/moecraft/icq/event/Event.html" title="cc.m
 <li class="blockList">
 <h4>getSenderId</h4>
 <pre>public&nbsp;long&nbsp;getSenderId()</pre>
+<div class="block">获取发送者 QQ 号</div>
+<dl>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>发送者 QQ 号</dd>
+</dl>
 </li>
 </ul>
 <a name="getSender--">
@@ -407,6 +455,14 @@ extends <a href="../../../../../../cc/moecraft/icq/event/Event.html" title="cc.m
 <li class="blockList">
 <h4>getSender</h4>
 <pre>public&nbsp;net.mamoe.mirai.contact.User&nbsp;getSender()</pre>
+<div class="block">获取发送者（好友或群员）</div>
+<dl>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>发送者（好友或群员）</dd>
+<dt><span class="seeLabel">另请参阅:</span></dt>
+<dd><code>Member</code>, 
+<code>Friend</code></dd>
+</dl>
 </li>
 </ul>
 <a name="getEventTime--">
@@ -416,6 +472,13 @@ extends <a href="../../../../../../cc/moecraft/icq/event/Event.html" title="cc.m
 <li class="blockList">
 <h4>getEventTime</h4>
 <pre>public&nbsp;int&nbsp;getEventTime()</pre>
+<div class="block">获取事件时间</div>
+<dl>
+<dt><span class="returnLabel">返回:</span></dt>
+<dd>事件时间</dd>
+<dt><span class="seeLabel">另请参阅:</span></dt>
+<dd><a href="../../../../../../cc/moecraft/icq/event/Event.html#getTime--"><code>Event.getTime()</code></a></dd>
+</dl>
 </li>
 </ul>
 <a name="respond-java.lang.String-">
