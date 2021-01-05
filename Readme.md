@@ -3,7 +3,7 @@
   <br>
   PicqBotX-Mirai
   <h4 align="center">
-  一个基于 Mirai 的 Java QQ 机器人类库
+  一个基于 <a href="https://github.com/mamoe/mirai">Mirai</a> 的 Java QQ 机器人类库
   </h4>
   <h5 align="center">
     <a href="#maven">Maven 导入</a>&nbsp;&nbsp;
@@ -20,7 +20,7 @@
   <br>
 </h1>
 
-继承原来的 [PicqBotX][picqbotx-legacy]。
+继承原来的 [PicqBotX][picqbotx-legacy]。现在使用 [Mirai][mirai] 核心框架。
 
 ## 从原项目迁移
 
@@ -170,8 +170,11 @@ dependencies {
 ```
 
 <a name="license"></a>
-[开源条款](https://choosealicense.com/licenses/mit/): MIT
+[开源条款](https://choosealicense.com/licenses/agpl-3.0/): AGPLv3
 --------
+
+`Mirai` 使用 `AGPLv3` 协议，**强烈建议**一切接触到 Mirai 或者一切使用 `PicqBotX-Mirai` 的软件使用 `AGPLv3` 开源。
 
 
 [picqbotx-legacy]: https://github.com/HyDevelop/PicqBotX
+[mirai]: https://github.com/mamoe/mirai
